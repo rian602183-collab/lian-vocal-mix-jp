@@ -1,0 +1,9 @@
+{
+  "name": "lian-vocal-mix-site",
+  "private": true,
+  "version": "21.0.0",
+  "description": "Lian Vocal MIX static site with Netlify Forms and Kakao notification function",
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0"
+  }
+}
