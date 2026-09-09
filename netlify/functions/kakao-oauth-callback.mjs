@@ -28,7 +28,7 @@ a{display:inline-block;margin-top:20px;padding:12px 18px;border-radius:999px;bac
 }
 
 async function sendTest(accessToken) {
-  const siteUrl = process.env.PUBLIC_SITE_URL || "https://lian-vocal-mix.netlify.app/";
+  const siteUrl = process.env.PUBLIC_SITE_URL || "https://deft-gaufre-e346cc.netlify.app/";
   const template = {
     object_type: "text",
     text: "✅ Lian Vocal MIX\n카카오톡 문의 알림 연동이 완료되었습니다.",

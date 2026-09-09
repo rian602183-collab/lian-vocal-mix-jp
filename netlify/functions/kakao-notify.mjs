@@ -90,7 +90,7 @@ async function refreshAccessToken(store) {
 }
 
 async function sendKakaoMessage(accessToken, data) {
-  const siteUrl = process.env.PUBLIC_SITE_URL || "https://lian-vocal-mix-jp.netlify.app/";
+  const siteUrl = process.env.PUBLIC_SITE_URL || "https://deft-gaufre-e346cc.netlify.app/";
   const template = {
     object_type: "text",
     text: buildMessage(data),

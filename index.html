@@ -39,7 +39,7 @@
 
       <a class="lang-switch jp-lang" href="https://lian-vocal-mix.netlify.app/" aria-label="韓国語サイトへ">한국어</a>
 
-      <a class="header-cta jp-x-cta" href="https://x.com/rian140386" target="_blank" rel="noopener">
+      <a class="header-cta jp-x-cta" href="https://x.com/Lian5602" target="_blank" rel="noopener">
         <span class="status-dot" aria-hidden="true"></span>
         Xで相談
       </a>
@@ -67,7 +67,7 @@
 
         <div class="jp-hero-actions">
           <a class="btn primary" href="#works">サンプルを聴く</a>
-          <a class="btn jp-x-button" href="https://x.com/rian140386" target="_blank" rel="noopener">XのDMで相談する</a>
+          <a class="btn jp-x-button" href="https://x.com/Lian5602" target="_blank" rel="noopener">XのDMで相談する</a>
         </div>
 
         <div class="jp-trust-row">
@@ -119,7 +119,7 @@
     </div>
   </section>
 
-  <section class="jp-section" id="recommend">
+  <section class="jp-section jp-recommend-compact" id="recommend">
     <div class="container">
       <div class="jp-section-head">
         <div><span class="jp-eyebrow">FOR YOU</span><h2>こんな方におすすめ</h2></div>
@@ -134,15 +134,34 @@
     </div>
   </section>
 
-  <section class="jp-section jp-works-section" id="works">
+  <section class="jp-click-nav-wrap" aria-label="コンテンツメニュー">
+    <div class="container">
+      <div class="jp-click-nav" role="tablist" aria-label="サイト情報を切り替える">
+        <button class="jp-click-tab is-active" type="button" data-panel-target="works" aria-selected="true">PORTFOLIO</button>
+        <button class="jp-click-tab" type="button" data-panel-target="price" aria-selected="false">PRICE</button>
+        <button class="jp-click-tab" type="button" data-panel-target="guide" aria-selected="false">GUIDE</button>
+        <button class="jp-click-tab" type="button" data-panel-target="reviews" aria-selected="false">REVIEWS</button>
+        <button class="jp-click-tab" type="button" data-panel-target="contact" aria-selected="false">CONTACT</button>
+      </div>
+      <p class="jp-click-hint">必要な項目をクリックすると、内容だけ切り替わります。</p>
+    </div>
+  </section>
+
+  <section class="jp-section jp-works-section jp-panel is-active" id="works" data-jp-panel="works">
     <div class="container">
       <div class="jp-section-head">
         <div><span class="jp-eyebrow">PORTFOLIO</span><h2>実際のMIXを聴く</h2></div>
-        <p>ただ作業内容を並べるのではなく、各曲で特に意識したポイントをまとめています。</p>
+        <p>曲タイプをクリックすると、そのカテゴリーだけ表示します。</p>
       </div>
 
-      <div class="jp-work-grid">
-        <article class="jp-work-card solo">
+      <div class="jp-subtabs" role="tablist" aria-label="ポートフォリオタイプ">
+        <button class="jp-subtab is-active" type="button" data-work-filter="solo" aria-selected="true">SOLO</button>
+        <button class="jp-subtab" type="button" data-work-filter="duet" aria-selected="false">DUET</button>
+        <button class="jp-subtab" type="button" data-work-filter="group" aria-selected="false">GROUP</button>
+      </div>
+
+      <div class="jp-work-grid jp-work-filtered">
+        <article class="jp-work-card solo is-visible" data-work-type="solo">
           <div class="jp-work-head"><span class="jp-type">SOLO</span><h3>だから僕は音楽を辞めた</h3><p>Editing / Mix / Mastering — Lian</p></div>
           <div class="jp-mix-points">
             <b>MIX POINT</b>
@@ -155,7 +174,7 @@
           <audio controls preload="none" src="assets/audio/01_solo_dakara_boku_wa_ongaku_wo_yameta.mp3"></audio>
         </article>
 
-        <article class="jp-work-card duet">
+        <article class="jp-work-card duet" data-work-type="duet">
           <div class="jp-work-head"><span class="jp-type">DUET</span><h3>猫の声を真似してみよう</h3><p>Editing / Mix / Mastering — Lian</p></div>
           <div class="jp-mix-points">
             <b>MIX POINT</b>
@@ -168,7 +187,7 @@
           <audio controls preload="none" src="assets/audio/02_duet_cat_sound.mp3"></audio>
         </article>
 
-        <article class="jp-work-card group">
+        <article class="jp-work-card group" data-work-type="group">
           <div class="jp-work-head"><span class="jp-type">GROUP</span><h3>Must Have Love</h3><p>Editing / Mix / Mastering — Lian</p></div>
           <div class="jp-mix-points">
             <b>MIX POINT</b>
@@ -181,7 +200,7 @@
           <audio controls preload="none" src="assets/audio/03_group_must_have_love.mp3"></audio>
         </article>
 
-        <article class="jp-work-card group">
+        <article class="jp-work-card group" data-work-type="group">
           <div class="jp-work-head"><span class="jp-type">GROUP</span><h3>Flyer!</h3><p>Editing / Mix / Mastering — Lian</p></div>
           <div class="jp-mix-points">
             <b>MIX POINT</b>
@@ -194,7 +213,7 @@
           <audio controls preload="none" src="assets/audio/04_group_flyer.mp3"></audio>
         </article>
 
-        <article class="jp-work-card group">
+        <article class="jp-work-card group" data-work-type="group">
           <div class="jp-work-head"><span class="jp-type">GROUP</span><h3>Live my life</h3><p>Editing / Mix / Mastering — Lian</p></div>
           <div class="jp-mix-points">
             <b>MIX POINT</b>
@@ -220,15 +239,21 @@
     </div>
   </section>
 
-  <section class="jp-section jp-price-section" id="price">
+  <section class="jp-section jp-price-section jp-panel" id="price" data-jp-panel="price" hidden>
     <div class="container">
       <div class="jp-section-head">
         <div><span class="jp-eyebrow">MIX MENU</span><h2>料金プラン</h2></div>
-        <p>迷った場合は音源を確認して、必要な作業量に合うプランをご案内します。</p>
+        <p>プランをクリックすると、選択した料金だけ大きく表示します。</p>
       </div>
 
-      <div class="jp-price-grid">
-        <article class="jp-price-card">
+      <div class="jp-subtabs jp-price-tabs" role="tablist" aria-label="料金プラン">
+        <button class="jp-subtab" type="button" data-price-filter="light" aria-selected="false">LIGHT</button>
+        <button class="jp-subtab is-active" type="button" data-price-filter="standard" aria-selected="true">STANDARD</button>
+        <button class="jp-subtab" type="button" data-price-filter="deluxe" aria-selected="false">DELUXE</button>
+      </div>
+
+      <div class="jp-price-grid jp-price-filtered">
+        <article class="jp-price-card" data-price-type="light">
           <span class="jp-price-name">LIGHT</span>
           <div class="jp-price">¥4,000</div>
           <p class="jp-price-caption">録音状態が良く、基本的なMIXを希望する方向け。</p>
@@ -236,7 +261,7 @@
           <a href="#contact" class="btn secondary">相談する</a>
         </article>
 
-        <article class="jp-price-card recommended">
+        <article class="jp-price-card recommended is-visible" data-price-type="standard">
           <span class="jp-rec-badge">おすすめ</span>
           <span class="jp-price-name">STANDARD</span>
           <div class="jp-price">¥5,500</div>
@@ -245,7 +270,7 @@
           <a href="#contact" class="btn primary">相談する</a>
         </article>
 
-        <article class="jp-price-card">
+        <article class="jp-price-card" data-price-type="deluxe">
           <span class="jp-price-name">DELUXE</span>
           <div class="jp-price">¥6,500<span>〜</span></div>
           <p class="jp-price-caption">トラック数が多い、編集・演出が複雑な楽曲向け。</p>
@@ -271,14 +296,20 @@
     </div>
   </section>
 
-  <section class="jp-section" id="guide">
+  <section class="jp-section jp-panel" id="guide" data-jp-panel="guide" hidden>
     <div class="container">
       <div class="jp-section-head">
-        <div><span class="jp-eyebrow">HOW TO ORDER</span><h2>ご依頼の流れ</h2></div>
-        <p>XのDMまたは下のフォームからご相談ください。ご相談のみでも大丈夫です。</p>
+        <div><span class="jp-eyebrow">HOW TO ORDER</span><h2>ご依頼ガイド</h2></div>
+        <p>知りたい内容をクリックして確認できます。</p>
       </div>
 
-      <div class="jp-flow">
+      <div class="jp-subtabs jp-guide-tabs" role="tablist" aria-label="ご依頼ガイド">
+        <button class="jp-subtab is-active" type="button" data-guide-filter="flow" aria-selected="true">ご依頼の流れ</button>
+        <button class="jp-subtab" type="button" data-guide-filter="files" aria-selected="false">必要なファイル</button>
+        <button class="jp-subtab" type="button" data-guide-filter="time" aria-selected="false">納期・注意事項</button>
+      </div>
+
+      <div class="jp-flow is-visible" data-guide-panel="flow">
         <div><b>01</b><span>ご相談</span><p>曲名・人数・希望納期をお知らせください。</p></div>
         <div><b>02</b><span>音源確認・お見積り</span><p>録音ファイルと作業量を確認して料金をご案内します。</p></div>
         <div><b>03</b><span>お支払い</span><p>内容・料金をご確認いただいた後に作業を開始します。</p></div>
@@ -287,8 +318,8 @@
         <div><b>06</b><span>納品</span><p>最終確認後、WAVを基本に完成データをお渡しします。</p></div>
       </div>
 
-      <div class="jp-guide-grid">
-        <article>
+      <div class="jp-guide-grid" data-guide-grid>
+        <article data-guide-panel="files">
           <span class="jp-guide-icon">FILE</span>
           <h3>ご用意いただくもの</h3>
           <ul>
@@ -299,7 +330,7 @@
             <li>エフェクトをかけていないボーカル原音</li>
           </ul>
         </article>
-        <article>
+        <article data-guide-panel="time">
           <span class="jp-guide-icon">TIME</span>
           <h3>通常納期の目安</h3>
           <ul>
@@ -309,7 +340,7 @@
             <li>予約状況・トラック数により前後します</li>
           </ul>
         </article>
-        <article>
+        <article data-guide-panel="time">
           <span class="jp-guide-icon">NOTE</span>
           <h3>大切なご案内</h3>
           <ul>
@@ -322,7 +353,7 @@
     </div>
   </section>
 
-  <section class="jp-section jp-reviews-section">
+  <section class="jp-section jp-reviews-section jp-panel" id="reviews" data-jp-panel="reviews" hidden>
     <div class="container">
       <div class="jp-section-head">
         <div><span class="jp-eyebrow">REVIEWS</span><h2>ご依頼者様の声</h2></div>
@@ -331,15 +362,15 @@
 
       <div class="jp-review-grid">
         <article><b>01</b><p>「対応が親切で作業も早く、とても満足しました。分からないことをいろいろ質問しても丁寧に答えてくださり、ありがとうございました！」</p><span>2026.09.05 · 作業期間 8日</span></article>
-        <article><b>02</b><p>「納品が早くて、音も綺麗でした ㅎ.ㅎ」</p><span>2026.06.20 · 作業期間 46時間</span></article>
+        <article><b>02</b><p>「納品が早くて、音も綺麗でした！」</p><span>2026.06.20 · 作業期間 46時間</span></article>
         <article><b>03</b><p>「早くて、綺麗に仕上げていただけて満足です！」</p><span>2026.05.01 · 作業期間 4分</span></article>
-        <article><b>04</b><p>「すごくすごく良いです。ここ本当におすすめです ㄱㄱ」</p><span>2026.02.09 · 作業期間 4日</span></article>
+        <article><b>04</b><p>「すごくすごく良いです。ここは本当におすすめです！」</p><span>2026.02.09 · 作業期間 4日</span></article>
         <article><b>05</b><p>「綺麗な仕上がりをいただきました〜！とてもコスパが良いです。またお願いしたいです！」</p><span>2025.11.04 · 作業期間 3時間</span></article>
       </div>
     </div>
   </section>
 
-  <section class="jp-section jp-contact-section" id="contact">
+  <section class="jp-section jp-contact-section jp-panel" id="contact" data-jp-panel="contact" hidden>
     <div class="container">
       <div class="jp-contact-intro">
         <div>
@@ -347,14 +378,28 @@
           <h2>まずは気軽にご相談ください。</h2>
           <p>曲名・人数・希望納期・参考音源などをお知らせいただけると、スムーズにご案内できます。</p>
         </div>
-        <a class="jp-big-x" href="https://x.com/rian140386" target="_blank" rel="noopener">
+        <a class="jp-big-x" href="https://x.com/Lian5602" target="_blank" rel="noopener">
           <span>X / DM</span>
           <strong>XのDMで相談する</strong>
-          <em>@rian140386</em>
+          <em>@Lian5602</em>
         </a>
       </div>
 
-      <div class="jp-contact-layout">
+      <div class="jp-contact-actions">
+        <button class="jp-livechat-card" type="button" data-open-livechat>
+          <span class="jp-livechat-status"><i></i> LIVE CHAT</span>
+          <strong>サイトで今すぐ相談する</strong>
+          <small>リアルタイムチャットを開きます</small>
+        </button>
+
+        <button class="jp-contact-open" type="button" data-toggle-form aria-expanded="false">
+          <span>WEB FORM</span>
+          <strong>フォームで相談する</strong>
+          <small>クリックすると入力フォームが開きます</small>
+        </button>
+      </div>
+
+      <div class="jp-contact-layout jp-contact-form-wrap" hidden>
         <div class="jp-form-card">
           <div class="jp-form-title"><span>WEB FORM</span><h3>サイトから相談する</h3><p>送信内容は管理者へメール・通知で届きます。</p></div>
 
@@ -480,7 +525,10 @@
   <section class="jp-final-cta">
     <div class="container">
       <div><span>歌ってみたMIX ご依頼受付中</span><h2>「この録音でも大丈夫？」からでもOK。</h2><p>音源を見てから、必要な作業・料金・納期をご案内します。</p></div>
-      <a class="btn jp-final-button" href="https://x.com/rian140386" target="_blank" rel="noopener">XのDMで相談する</a>
+      <div class="jp-final-actions">
+        <button class="btn jp-final-chat" type="button" data-open-livechat>チャットで相談する</button>
+        <a class="btn jp-final-button" href="https://x.com/Lian5602" target="_blank" rel="noopener">XのDMで相談する</a>
+      </div>
     </div>
   </section>
 </main>
@@ -488,10 +536,25 @@
 <footer class="footer jp-footer">
   <div class="container footer-grid">
     <div>© <span data-year>2026</span> Lian｜歌ってみたMIX. All rights reserved.</div>
-    <div class="footer-links"><a href="https://x.com/rian140386" target="_blank" rel="noopener">X</a><span>·</span><a href="https://lian-vocal-mix.netlify.app/">한국어</a></div>
+    <div class="footer-links"><a href="https://x.com/Lian5602" target="_blank" rel="noopener">X</a><span>·</span><a href="https://lian-vocal-mix.netlify.app/">한국어</a></div>
   </div>
 </footer>
 
 <script src="jp.js"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6aa0d3bc08f5a2345548dc9d/1k223m625';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
 </body>
 </html>

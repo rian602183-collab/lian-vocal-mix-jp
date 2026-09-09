@@ -190,3 +190,111 @@ document.addEventListener('DOMContentLoaded', () => {
   syncExtrasUi();
   updateEstimate();
 });
+
+
+// ============================================================
+// JP V3 — click navigation / selected state
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const mainTabs = [...document.querySelectorAll('.jp-click-tab')];
+  const mainPanels = [...document.querySelectorAll('[data-jp-panel]')];
+  const clickNav = document.querySelector('.jp-click-nav-wrap');
+
+  function showMainPanel(name, doScroll = true) {
+    mainTabs.forEach(tab => {
+      const on = tab.dataset.panelTarget === name;
+      tab.classList.toggle('is-active', on);
+      tab.setAttribute('aria-selected', String(on));
+    });
+    mainPanels.forEach(panel => {
+      const on = panel.dataset.jpPanel === name;
+      panel.hidden = !on;
+      panel.classList.toggle('is-active', on);
+    });
+    if (doScroll && clickNav) {
+      const top = clickNav.getBoundingClientRect().bottom + window.scrollY + 3;
+      window.scrollTo({top, behavior:'smooth'});
+    }
+  }
+
+  mainTabs.forEach(tab => tab.addEventListener('click', () => showMainPanel(tab.dataset.panelTarget)));
+
+  // Header and in-page links activate the same panels instead of exposing every section vertically.
+  document.querySelectorAll('a[href="#works"],a[href="#price"],a[href="#guide"],a[href="#contact"]').forEach(link => {
+    link.addEventListener('click', event => {
+      const name = link.getAttribute('href').slice(1);
+      event.preventDefault();
+      showMainPanel(name);
+    });
+  });
+
+  const workTabs = [...document.querySelectorAll('[data-work-filter]')];
+  const workCards = [...document.querySelectorAll('[data-work-type]')];
+  workTabs.forEach(tab => tab.addEventListener('click', () => {
+    const type = tab.dataset.workFilter;
+    workTabs.forEach(t => {
+      const on = t === tab;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+    workCards.forEach(card => card.classList.toggle('is-visible', card.dataset.workType === type));
+  }));
+
+  const priceTabs = [...document.querySelectorAll('[data-price-filter]')];
+  const priceCards = [...document.querySelectorAll('[data-price-type]')];
+  priceTabs.forEach(tab => tab.addEventListener('click', () => {
+    const type = tab.dataset.priceFilter;
+    priceTabs.forEach(t => {
+      const on = t === tab;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+    priceCards.forEach(card => card.classList.toggle('is-visible', card.dataset.priceType === type));
+  }));
+
+  const guideTabs = [...document.querySelectorAll('[data-guide-filter]')];
+  const guideFlow = document.querySelector('[data-guide-panel="flow"]');
+  const guideItems = [...document.querySelectorAll('.jp-guide-grid [data-guide-panel]')];
+  const guideGrid = document.querySelector('[data-guide-grid]');
+  function showGuide(type) {
+    guideTabs.forEach(t => {
+      const on = t.dataset.guideFilter === type;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+    if (guideFlow) guideFlow.classList.toggle('is-visible', type === 'flow');
+    guideItems.forEach(item => item.classList.toggle('is-visible', item.dataset.guidePanel === type));
+    if (guideGrid) {
+      guideGrid.classList.toggle('files-mode', type === 'files');
+      guideGrid.classList.toggle('time-mode', type === 'time');
+      guideGrid.style.display = type === 'flow' ? 'none' : 'grid';
+    }
+  }
+  guideTabs.forEach(tab => tab.addEventListener('click', () => showGuide(tab.dataset.guideFilter)));
+  showGuide('flow');
+
+  const formToggle = document.querySelector('[data-toggle-form]');
+  const formWrap = document.querySelector('.jp-contact-form-wrap');
+  if (formToggle && formWrap) {
+    formToggle.addEventListener('click', () => {
+      const open = formWrap.hidden;
+      formWrap.hidden = !open;
+      formToggle.classList.toggle('is-open', open);
+      formToggle.setAttribute('aria-expanded', String(open));
+      const small = formToggle.querySelector('small');
+      if (small) small.textContent = open ? 'もう一度クリックすると閉じます' : 'クリックすると入力フォームが開きます';
+      if (open) setTimeout(() => formWrap.scrollIntoView({behavior:'smooth',block:'start'}), 60);
+    });
+  }
+});
+
+
+// JP V5 — open Tawk.to from custom site buttons.
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-open-livechat]').forEach(button => {
+    button.addEventListener('click', () => {
+      if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') { window.Tawk_API.maximize(); return; }
+      let tries=0; const timer=setInterval(()=>{ tries++; if(window.Tawk_API && typeof window.Tawk_API.maximize==='function'){clearInterval(timer);window.Tawk_API.maximize();}else if(tries>=20){clearInterval(timer);}},250);
+    });
+  });
+});
