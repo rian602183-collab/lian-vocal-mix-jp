@@ -3244,13 +3244,14 @@ details{
 .jp-big-x span,.jp-big-x em{display:block;color:#c9dbef;font-size:9px;font-weight:850;font-style:normal}
 .jp-big-x strong{display:block;margin:7px 0;font-size:16px}
 .jp-contact-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+.jp-contact-form-wrap[hidden]{display:none!important}
 .jp-form-card{padding:25px;border:1px solid #dbe7f2;border-radius:22px;background:rgba(255,255,255,.93);box-shadow:0 16px 42px rgba(36,73,106,.055)}
 .jp-form-title{margin-bottom:20px}
 .jp-form-title>span{color:#588dcc;font-size:9px;font-weight:950;letter-spacing:.12em}
 .jp-form-title h3{margin:6px 0 3px;color:#21425d;font-size:20px}
 .jp-form-title p{margin:0;color:#8091a1;font-size:10px}
 .jp-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.jp-form .field label{color:#3d5c75}
+.jp-form .field label,.jp-form .field-label{display:block;color:#3d5c75}
 .jp-form .field input,.jp-form .field select,.jp-form .field textarea{border-radius:12px;border-color:#cfdfee}
 .jp-form .field textarea{min-height:130px}
 .jp-form-note{margin:4px 0 15px;padding:11px 12px;border-radius:11px;background:#f5f8ff;color:#71839a;font-size:10px}
@@ -3601,3 +3602,18 @@ details{
 .jp-contact-open span{color:#718aa1;font-size:9px;font-weight:950;letter-spacing:.10em}.jp-contact-open small{color:#8193a3;font-size:10px;font-weight:750}
 .jp-final-actions{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}.jp-final-chat{border:1px solid rgba(255,255,255,.45)!important;background:rgba(255,255,255,.13)!important;color:#fff!important;backdrop-filter:blur(10px)}.jp-final-chat:hover{background:rgba(255,255,255,.20)!important}
 @media(max-width:700px){.jp-contact-actions{grid-template-columns:1fr}.jp-livechat-card,.jp-contact-open{min-height:96px}.jp-final-actions{justify-content:flex-start}}
+
+/* JP V7 — non-invasive chat failure fallback */
+.jp-chat-fallback{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px;padding:12px 15px;
+  border:1px solid #d7e4f0;border-radius:14px;background:#f8fbff;color:#31536e;font-size:11px;
+}
+.jp-chat-fallback[hidden]{display:none!important}
+.jp-chat-fallback span{color:#5b88bc;font-size:9px;font-weight:950;letter-spacing:.1em}
+.jp-chat-fallback p{flex:1 1 260px;margin:0;color:#5e7488;line-height:1.6}
+.jp-chat-fallback a{padding:7px 10px;border:1px solid #b9d2e9;border-radius:999px;color:#315f8d;font-size:10px;font-weight:850;text-decoration:none;background:#fff}
+.jp-chat-fallback a:hover{background:#eef7ff;border-color:#7fa9d3}
+
+/* Keep programmatically revealed panels clear of the sticky header and tabs. */
+.jp-panel{scroll-margin-top:190px}
+@media(max-width:700px){.jp-panel{scroll-margin-top:150px}.jp-chat-fallback{align-items:flex-start}.jp-chat-fallback p{flex-basis:100%}}

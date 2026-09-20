@@ -1,0 +1,12 @@
+/* V7.2 adds only feedback, date and review UI; the V7.1 design remains intact. */
+.jp-site .jp-chat-reassurance { font-size: 12px; letter-spacing: 0; }
+.jp-site .jp-form-chat { display: inline-flex; align-items: center; min-height: 38px; margin-top: 8px; padding: 4px 0; border: 0; background: none; color: var(--lian-action); font: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.jp-site #deadline-hint, .jp-site #deadline-error { font-size: 12px; color: var(--lian-muted); }
+.jp-site #deadline-error { color: #a32c37; }
+.jp-site [aria-invalid="true"] { border-color: #a32c37 !important; }
+.jp-site #jp-approved-reviews { margin-top: 32px; }
+.jp-site #jp-approved-reviews[hidden] { display: none; }
+.jp-site #jp-approved-reviews h3 { margin: 0 0 20px; font-size: 20px; }
+.jp-site #jp-approved-reviews p { white-space: pre-wrap; overflow-wrap: anywhere; }
+.jp-site #jp-approved-reviews .jp-review-song { margin: 0 0 12px; font-size: 13px; color: var(--lian-muted); }
+.jp-site .jp-payment-note { margin-top: 24px; padding: 20px; border: 1px solid var(--lian-line); border-radius: 12px; }
