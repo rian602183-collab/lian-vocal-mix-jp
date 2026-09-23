@@ -1,0 +1,55 @@
+/* V7.2.1 presentation only. Original calculators, audio and review code stay intact. */
+.jp-site .brand-mark::after { display: none; }
+.jp-site .jp-sample-chat { display: none; }
+.jp-site .jp-contact-method-note { grid-column: 1 / -1; }
+.jp-site .jp-contact-method-note p { margin: 0; font-size: 13px; color: var(--lian-muted); line-height: 1.75; }
+.jp-site #contact-method-error { color: #a32c37; margin-top: 5px; }
+.jp-site #contact-method-error[hidden], .jp-site #deadline-rush-hint[hidden] { display: none; }
+.jp-site #contact-form small { display: block; line-height: 1.75; font-weight: 400; }
+.jp-site #extra-track-help, .jp-site #deadline-policy, .jp-site #deadline-rush-hint { margin-top: 7px; color: var(--lian-muted); font-size: 12px; }
+.jp-site .jp-review-invitation { font-size: 13px; color: var(--lian-muted); line-height: 1.75; margin: 22px 0 0; }
+.jp-site .jp-guide-rush-note { font-size: 14px; color: var(--lian-muted); line-height: 1.75; margin: 16px 0 0; }
+.jp-site .jp-form button[type="submit"]:disabled { cursor: wait; opacity: .75; }
+.jp-site .jp-form :where(input, textarea, select) { scroll-margin-top: calc(var(--lian-header) + var(--v721-nav-height, 64px) + 18px); }
+.jp-site .jp-panel { scroll-margin-top: calc(var(--lian-header) + var(--v721-nav-height, 90px) + 12px); }
+.jp-site .jp-estimate-mini { display: none; }
+.jp-site .jp-work-pane, .jp-site .jp-guide-pane { display: grid; grid-template-columns: inherit; gap: inherit; grid-column: 1 / -1; min-width: 0; }
+.jp-site .jp-work-pane[hidden], .jp-site .jp-guide-pane[hidden], .jp-site .jp-flow[hidden] { display: none !important; }
+.jp-site .jp-thanks-page { padding-bottom: max(50px, env(safe-area-inset-bottom)); }
+.jp-site #thanks-chat-fallback[hidden] { display: none; }
+.jp-site #jp-approved-reviews p { overflow-wrap: break-word; line-break: strict; }
+
+@media (max-width: 700px) {
+  .jp-site { line-break: strict; }
+  .jp-site .jp-click-nav-wrap { padding: 7px 0; }
+  .jp-site .jp-click-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; overflow: visible; padding: 0; scrollbar-width: none; }
+  .jp-site .jp-click-nav::-webkit-scrollbar { display: none; }
+  .jp-site .jp-click-tab { min-height: 44px; padding: 6px 1px; font-size: 10px; letter-spacing: 0; line-height: 1.3; white-space: normal; overflow-wrap: break-word; }
+  .jp-site .jp-click-tab:focus-visible { outline-offset: -3px; }
+  .jp-site .jp-click-hint, .jp-site .jp-swipe-hint { display: none; }
+  /* The legacy scroll function already measures both sticky bars; reduce only
+     the panel's own padding rather than adding a second scroll correction. */
+  .jp-site .jp-panel { padding-top: 20px; }
+  .jp-site .jp-thanks-card h1 { line-height: 1.3; text-wrap: balance; }
+  .jp-site .jp-hero-copy h1 { line-height: 1.25; text-wrap: balance; }
+  .jp-site .jp-hero-lead { line-height: 1.74; text-wrap: pretty; }
+  .jp-site .jp-phrase { display: inline-block; max-width: 100%; vertical-align: top; }
+  .jp-site .jp-section-head h2, .jp-site .jp-contact-intro h2 { line-height: 1.27; text-wrap: balance; }
+  .jp-site .jp-section-head p, .jp-site .jp-contact-intro p, .jp-site .jp-mix-points li { line-height: 1.76; text-wrap: pretty; }
+  .jp-site .jp-review-grid article { padding: 20px 18px; }
+  .jp-site .jp-review-grid article p { line-height: 1.8; }
+  .jp-site .jp-review-grid article span { font-size: 12px; line-height: 1.7; }
+  .jp-site .jp-faq summary { min-height: 44px; box-sizing: border-box; padding: 14px 16px; font-weight: 650; line-height: 1.55; }
+  .jp-site .jp-faq details p { padding: 2px 16px 17px; line-height: 1.76; }
+  .jp-site .jp-faq summary:focus-visible { outline-offset: -3px; border-radius: 10px; }
+  .jp-site .jp-estimate-mini { display: grid; }
+  .jp-site .jp-estimate-card { display: none; }
+  .jp-site .jp-sample-chat { display: inline-flex; align-items: center; min-height: 44px; margin: 5px 0 -6px; padding: 4px 0; background: none; border: 0; color: var(--lian-action); font: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .jp-site .header-actions { gap: 8px; }
+  .jp-site .site-header .nav { height: auto; min-height: 65px; flex-wrap: wrap; gap: 6px 12px; }
+  .jp-site .header-actions, .jp-site .brand { flex-shrink: 0; }
+  .jp-site .header-actions { margin-left: auto; max-width: 100%; }
+  .jp-site .mobile-menu { width: auto; min-width: 46px; padding-inline: 8px; flex-shrink: 0; }
+  .jp-site .jp-quick-grid > div { min-width: 0; flex-wrap: wrap; row-gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .jp-site .jp-sample-chat { transition: none; } }

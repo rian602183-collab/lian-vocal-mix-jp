@@ -1,0 +1,55 @@
+.jp-site .lian-review-shell { max-width: 740px; margin: auto; padding: 40px 24px max(50px, env(safe-area-inset-bottom)); }
+.jp-site .lian-review-brand { display: inline-flex; gap: 14px; align-items: baseline; margin-bottom: 24px; font-size: 28px; color: var(--lian-ink); text-decoration: none; font-weight: 700; }
+.jp-site .lian-review-brand span { font-size: 12px; letter-spacing: .08em; color: var(--lian-muted); font-weight: 500; }
+.jp-site .lian-review-card { padding: 32px; border: 1px solid var(--lian-line); border-radius: 18px; background: #fff; }
+.jp-site .lian-review-card h1 { margin: 12px 0 16px; font-size: 28px; line-height: 1.5; letter-spacing: -.03em; text-wrap: balance; }
+.jp-site .lian-review-card h2 { font-size: 22px; }
+.jp-site .lian-review-card p { color: var(--lian-muted); font-size: 15px; line-height: 1.8; }
+.jp-site .lian-review-card a { color: var(--lian-action); overflow-wrap: anywhere; }
+.jp-site .lian-review-card code { font-size: 13px; overflow-wrap: anywhere; }
+.jp-site .lian-review-card label { display: block; margin: 22px 0 8px; color: var(--lian-ink); font-size: 15px; font-weight: 600; }
+.jp-site .lian-review-card label > span { color: var(--lian-muted); font-size: 12px; margin-left: 6px; font-weight: 400; }
+.jp-site .lian-review-card input:not([type="checkbox"]):not([type="hidden"]), .jp-site .lian-review-card textarea, .jp-site .lian-review-card select { width: 100%; padding: 11px 12px; min-height: 46px; border: 1px solid #cfdfee; border-radius: 8px; background: #fff; color: var(--lian-ink); font: inherit; font-size: 16px; box-sizing: border-box; }
+.jp-site .lian-review-card input[type="hidden"], .jp-site .lian-review-card [hidden] { display: none !important; }
+.jp-site .lian-review-card button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 17px; margin: 20px 8px 0 0; border: 1px solid var(--lian-action); border-radius: 9px; background: var(--lian-action); color: #fff; font: inherit; font-size: 14px; cursor: pointer; }
+.jp-site .lian-review-card button.secondary { background: #fff; color: var(--lian-action); }
+.jp-site .lian-review-card button:disabled { background: #e6edf6; color: #52697c; border-color: #d9e4ee; cursor: default; }
+.jp-site .lian-review-card fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.jp-site .lian-review-card small, .jp-site .lian-review-card .review-help { color: var(--lian-muted); font-size: 13px; line-height: 1.8; }
+.jp-site .lian-review-card .review-consent { display: flex; align-items: start; gap: 10px; }
+.jp-site .lian-review-card .review-consent input { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 4px; }
+.jp-site .lian-review-card .review-consent span { font-size: 14px; margin-left: 0; }
+.jp-site .lian-review-card #review-state { padding: 12px 14px; background: #eff4fc; border-radius: 8px; }
+.jp-site .lian-review-card blockquote { margin: 20px 0; padding: 16px 20px; border-left: 2px solid var(--lian-blue); background: #f0f5fc; white-space: pre-wrap; overflow-wrap: anywhere; }
+.jp-site .lian-review-card dl { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 10px 16px; font-size: 14px; }
+.jp-site .lian-review-card dd { margin: 0; overflow-wrap: anywhere; }
+.jp-site .lian-pending-review + .lian-pending-review { border-top: 1px solid var(--lian-line); padding-top: 24px; margin-top: 32px; }
+.review-hp, .review-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media(max-width: 600px) { .jp-site .lian-review-shell { padding: 24px 18px 40px; } .jp-site .lian-review-card { padding: 24px 18px; } .jp-site .lian-review-card h1 { font-size: 24px; } .jp-site .lian-review-card button { width: 100%; margin-right: 0; } }
+.jp-site .review-admin-toolbar { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; margin:0 0 22px; }
+.jp-site .review-admin-toolbar h2 { margin:0 0 4px; }
+.jp-site .review-admin-toolbar p { margin:0; }
+.jp-site .review-admin-summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(125px,1fr)); gap:10px; margin:16px 0 24px; }
+.jp-site .review-admin-summary > div { padding:16px 12px; border:1px solid var(--lian-line); border-radius:12px; background:#f8fbff; text-align:center; }
+.jp-site .review-admin-summary strong { display:block; color:var(--lian-ink); font-size:24px; line-height:1.2; }
+.jp-site .review-admin-summary span { display:block; margin-top:5px; color:var(--lian-muted); font-size:12px; line-height:1.5; }
+.jp-site .review-admin-panel { margin-top:24px; padding-top:24px; border-top:1px solid var(--lian-line); }
+.jp-site .review-admin-panel > h2 { display:flex; gap:8px; align-items:baseline; margin:0 0 8px; }
+.jp-site .review-admin-panel > h2 span { color:var(--lian-muted); font-size:13px; font-weight:500; }
+.jp-site .lian-review-admin-item { padding:18px; margin-top:14px; border:1px solid #d9e4ee; border-radius:12px; background:#fbfdff; }
+.jp-site .lian-review-admin-item blockquote { margin-bottom:12px; }
+.jp-site .review-admin-state { margin:0 0 12px !important; color:var(--lian-ink) !important; }
+.jp-site .review-admin-meta { margin:12px 0 0 !important; font-size:12px !important; }
+.jp-site .review-admin-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:10px; }
+.jp-site .review-admin-action { display:inline; margin:0; }
+.jp-site .review-admin-action button { margin:8px 0 0; }
+.jp-site .review-admin-action button.danger { background:#fff; color:#a03232; border-color:#c88484; }
+.jp-site .review-admin-notice { padding:12px 14px; border:1px solid #b7cce2; border-radius:10px; background:#eff6ff; color:var(--lian-ink) !important; overflow-wrap:anywhere; }
+.jp-site .review-admin-invite { padding:2px 0 4px; }
+@media(max-width:700px) {
+  .jp-site .review-admin-toolbar { display:block; }
+  .jp-site .review-admin-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jp-site .review-admin-toolbar .review-admin-action { display:block; }
+  .jp-site .review-admin-actions { display:block; }
+  .jp-site .review-admin-action button { width:100%; }
+}

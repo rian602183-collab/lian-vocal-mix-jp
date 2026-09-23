@@ -1,0 +1,98 @@
+{
+  "version": "V7.2.7",
+  "portfolio_count": 10,
+  "removed": [
+    "プロポーズ"
+  ],
+  "featured": [
+    "내 이름 맑음",
+    "Flyer!",
+    "Live my life",
+    "Akari Kito",
+    "IVE - ELEVEN"
+  ],
+  "all_works": [
+    "내 이름 맑음",
+    "Flyer!",
+    "Live my life",
+    "Akari Kito",
+    "IVE - ELEVEN",
+    "필름",
+    "나에게로 떠나는 여행 (노아)",
+    "Raise up your bat",
+    "ファンサ",
+    "モニタリング"
+  ],
+  "before_after": [
+    {
+      "title": "Flyer!",
+      "before": "assets/audio/flyer_before.mp3",
+      "after": "assets/audio/flyer_after.mp3",
+      "duration_sec": 30,
+      "fade_in_sec": 0.8,
+      "fade_out_sec": 1.0,
+      "source_note": "User-provided Before/After; cut/fade only"
+    },
+    {
+      "title": "Raise up your bat",
+      "before": "assets/audio/raise_before.mp3",
+      "after": "assets/audio/raise_after.mp3",
+      "duration_sec": 30,
+      "fade_in_sec": 0.8,
+      "fade_out_sec": 1.0,
+      "source_note": "User-provided Before/After; cut/fade only"
+    }
+  ],
+  "harmony_demo": {
+    "main_only": "assets/audio/harmony_main_only.mp3",
+    "harmony_on": "assets/audio/harmony_generated.mp3"
+  },
+  "performance": {
+    "audio_preload": "none",
+    "one_audio_at_a_time": true,
+    "desktop_initial_allworks": 6,
+    "mobile_initial_allworks": 4
+  },
+  "works": [
+    {
+      "title": "내 이름 맑음",
+      "audio": "assets/audio/my_name_clear.mp3"
+    },
+    {
+      "title": "Flyer!",
+      "audio": "assets/audio/flyer.mp3"
+    },
+    {
+      "title": "Live my life",
+      "audio": "assets/audio/live_my_life.mp3"
+    },
+    {
+      "title": "Akari Kito",
+      "audio": "assets/audio/akari_kito.mp3"
+    },
+    {
+      "title": "IVE - ELEVEN",
+      "audio": "assets/audio/ive_eleven.mp3"
+    },
+    {
+      "title": "필름",
+      "audio": "assets/audio/film.mp3"
+    },
+    {
+      "title": "나에게로 떠나는 여행 (노아)",
+      "audio": "assets/audio/travel_to_me_noah.mp3"
+    },
+    {
+      "title": "Raise up your bat",
+      "audio": "assets/audio/raise_up_your_bat.mp3"
+    },
+    {
+      "title": "ファンサ",
+      "audio": "assets/audio/fansa.mp3"
+    },
+    {
+      "title": "モニタリング",
+      "audio": "assets/audio/monitoring.mp3"
+    }
+  ]
+}

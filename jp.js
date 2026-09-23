@@ -13,20 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
       links.classList.remove('mobile-open');
       mobileBtn.classList.remove('is-open');
       mobileBtn.setAttribute('aria-expanded', 'false');
+      mobileBtn.setAttribute('aria-label', 'メニューを開く');
     }));
   }
 
   document.querySelectorAll('[data-year]').forEach(el => {
     el.textContent = new Date().getFullYear();
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
   });
 
   const form = document.querySelector('#contact-form');
@@ -49,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const outExtra = document.querySelector('#summary-extra');
   const outRush = document.querySelector('#summary-rush');
   const outTotal = document.querySelector('#summary-total');
+  const compactTotals = [...document.querySelectorAll('[data-estimate-total]')];
 
   const mailPlan = document.querySelector('#mail-estimate-plan');
   const mailPeople = document.querySelector('#mail-estimate-people');
@@ -72,6 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const extraRoot = document.querySelector('#extra-work-select');
   const extraTitle = document.querySelector('#extra-work-trigger-text');
   const extraRows = extraRoot ? [...extraRoot.querySelectorAll('.jp-extra-option')] : [];
+
+  // Keep partially typed values intact. Normalize only after editing is committed.
+  function countForEstimate(input, minimum) {
+    const value = Number(input?.value);
+    return Number.isSafeInteger(value) && value >= minimum ? value : minimum;
+  }
 
   function syncExtrasUi() {
     const selected = extraRows.filter(row => row.querySelector('input')?.checked);
@@ -103,8 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       peopleText = '+¥3,500〜';
       variable = true;
     } else if (people === 'group') {
-      const count = Math.max(parseInt(groupCount?.value || '3', 10), 3);
-      if (groupCount) groupCount.value = count;
+      const count = countForEstimate(groupCount, 3);
       peopleExtra = 3500 + (count - 2) * 2000;
       peopleText = `${count}人 +${yen(peopleExtra)}〜`;
       variable = true;
@@ -115,8 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let extrasPrice = 0;
     let extrasVariable = false;
 
-    const trackCount = Math.max(parseInt(extraTrackCount?.value || '0', 10), 0);
-    if (extraTrackCount) extraTrackCount.value = trackCount;
+    const trackCount = countForEstimate(extraTrackCount, 0);
     if (trackCount > 0) {
       extras.push(`追加track ×${trackCount}`);
       extrasPrice += trackCount * 500;
@@ -169,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!outTotal) return;
     if (plan.price === null) {
       outTotal.textContent = 'プランを選択してください';
+      compactTotals.forEach(output => { output.textContent = outTotal.textContent; });
       if (mailTotal) mailTotal.value = 'プランを選択してください';
       return;
     }
@@ -177,8 +175,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = Math.round(subtotal * (1 + rushMultiplier));
     const text = yen(total) + (variable ? '〜' : '');
     outTotal.textContent = text;
+    compactTotals.forEach(output => { output.textContent = text; });
     if (mailTotal) mailTotal.value = text;
   }
+
+  [[groupCount, 3], [extraTrackCount, 0]].forEach(([input, minimum]) => {
+    if (!input) return;
+    const commitCount = () => {
+      input.value = String(countForEstimate(input, minimum));
+      updateEstimate();
+    };
+    input.addEventListener('change', commitCount);
+    input.addEventListener('blur', commitCount);
+  });
 
   [planSelect, peopleSelect, groupCount, extraTrackCount, extraHarmony, extraAdlib, extraPrivate, rushSelect]
     .filter(Boolean)
@@ -193,40 +202,134 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ============================================================
-// JP V3 — click navigation / selected state
+// JP V7 — hash navigation, panel state, audio coordination, fallbacks
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   const mainTabs = [...document.querySelectorAll('.jp-click-tab')];
   const mainPanels = [...document.querySelectorAll('[data-jp-panel]')];
   const clickNav = document.querySelector('.jp-click-nav-wrap');
+  const header = document.querySelector('.site-header');
+  const formToggle = document.querySelector('[data-toggle-form]');
+  const formWrap = document.querySelector('.jp-contact-form-wrap');
+  const planSelect = document.querySelector('#plan-select');
+  const chatFallback = document.querySelector('[data-chat-fallback]');
 
-  function showMainPanel(name, doScroll = true) {
+  const hashToPanel = {
+    portfolio: 'works',
+    works: 'works',
+    price: 'price',
+    guide: 'guide',
+    reviews: 'reviews',
+    contact: 'contact'
+  };
+  const panelToHash = { works: 'portfolio', price: 'price', guide: 'guide', reviews: 'reviews', contact: 'contact' };
+  const validPanels = new Set(Object.values(hashToPanel));
+
+  function panelFromHash() {
+    return hashToPanel[window.location.hash.slice(1).toLowerCase()] || 'works';
+  }
+
+  function scrollToVisible(target, behavior = 'smooth') {
+    if (!target) return;
+    const headerHeight = header?.getBoundingClientRect().height || 0;
+    const navHeight = clickNav?.getBoundingClientRect().height || 0;
+    const offset = headerHeight + navHeight + 12;
+    const top = Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset);
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : behavior;
+    window.scrollTo({ top, behavior: motion });
+  }
+
+  function pauseAudios(root = document) {
+    root.querySelectorAll('audio').forEach(audio => {
+      if (!audio.paused) audio.pause();
+    });
+  }
+
+  function syncFormButton(open) {
+    if (!formToggle) return;
+    formToggle.classList.toggle('is-open', open);
+    formToggle.setAttribute('aria-expanded', String(open));
+    const label = formToggle.querySelector('strong');
+    const small = formToggle.querySelector('small');
+    if (label) label.textContent = open ? 'フォームを閉じる' : 'お問い合わせフォーム';
+    if (small) small.textContent = open ? 'もう一度クリックすると閉じます' : 'クリックすると入力フォームが開きます';
+  }
+
+  function setHash(name, mode) {
+    const nextHash = `#${panelToHash[name] || name}`;
+    if (mode === 'none' || window.location.hash === nextHash) return;
+    if (mode === 'replace') history.replaceState(null, '', nextHash);
+    else history.pushState(null, '', nextHash);
+  }
+
+  function showMainPanel(name, { scroll = true, historyMode = 'push' } = {}) {
+    const panelName = validPanels.has(name) ? name : 'works';
     mainTabs.forEach(tab => {
-      const on = tab.dataset.panelTarget === name;
+      const on = tab.dataset.panelTarget === panelName;
       tab.classList.toggle('is-active', on);
       tab.setAttribute('aria-selected', String(on));
+      tab.setAttribute('tabindex', on ? '0' : '-1');
     });
     mainPanels.forEach(panel => {
-      const on = panel.dataset.jpPanel === name;
+      const on = panel.dataset.jpPanel === panelName;
       panel.hidden = !on;
       panel.classList.toggle('is-active', on);
+      if (!on) pauseAudios(panel);
     });
-    if (doScroll && clickNav) {
-      const top = clickNav.getBoundingClientRect().bottom + window.scrollY + 3;
-      window.scrollTo({top, behavior:'smooth'});
+    const activeTab = mainTabs.find(tab => tab.dataset.panelTarget === panelName);
+    const tabStrip = activeTab?.parentElement;
+    if (activeTab && tabStrip) {
+      const box = activeTab.getBoundingClientRect();
+      const stripBox = tabStrip.getBoundingClientRect();
+      if (box.left < stripBox.left) tabStrip.scrollLeft -= stripBox.left - box.left;
+      else if (box.right > stripBox.right) tabStrip.scrollLeft += box.right - stripBox.right;
     }
+    setHash(panelName, historyMode);
+    if (scroll) requestAnimationFrame(() => scrollToVisible(document.querySelector(`[data-jp-panel="${panelName}"]`)));
+  }
+
+  function setFormOpen(open, shouldScroll = false) {
+    if (!formWrap) return;
+    formWrap.hidden = !open;
+    syncFormButton(open);
+    if (open && shouldScroll) requestAnimationFrame(() => scrollToVisible(formWrap));
+  }
+
+  function openContact(plan) {
+    showMainPanel('contact', { scroll: false });
+    setFormOpen(true, false);
+    if (plan && planSelect) {
+      planSelect.value = plan;
+      planSelect.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    requestAnimationFrame(() => scrollToVisible(formWrap || document.querySelector('#contact')));
   }
 
   mainTabs.forEach(tab => tab.addEventListener('click', () => showMainPanel(tab.dataset.panelTarget)));
-
-  // Header and in-page links activate the same panels instead of exposing every section vertically.
-  document.querySelectorAll('a[href="#works"],a[href="#price"],a[href="#guide"],a[href="#contact"]').forEach(link => {
+  // Keep all five tabs usable with the keyboard and in a narrow horizontal strip.
+  mainTabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
+    const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? mainTabs.length - 1
+      : (index + (event.key === 'ArrowRight' ? 1 : -1) + mainTabs.length) % mainTabs.length;
+    mainTabs[next].focus({ preventScroll: true });
+    showMainPanel(mainTabs[next].dataset.panelTarget);
+  }));
+  document.querySelectorAll('a[href="#works"],a[href="#portfolio"],a[href="#price"],a[href="#guide"],a[href="#reviews"],a[href="#contact"]').forEach(link => {
     link.addEventListener('click', event => {
-      const name = link.getAttribute('href').slice(1);
       event.preventDefault();
-      showMainPanel(name);
+      const card = link.closest('[data-price-type]');
+      if (card) {
+        openContact(card.dataset.priceType);
+      } else {
+        showMainPanel(hashToPanel[link.getAttribute('href').slice(1)] || 'works');
+      }
     });
   });
+  window.addEventListener('hashchange', () => showMainPanel(panelFromHash(), { historyMode: 'none' }));
+  window.addEventListener('popstate', () => showMainPanel(panelFromHash(), { historyMode: 'none' }));
+  showMainPanel(panelFromHash(), { scroll: Boolean(window.location.hash), historyMode: 'none' });
 
   const workTabs = [...document.querySelectorAll('[data-work-filter]')];
   const workCards = [...document.querySelectorAll('[data-work-type]')];
@@ -237,19 +340,11 @@ document.addEventListener('DOMContentLoaded', () => {
       t.classList.toggle('is-active', on);
       t.setAttribute('aria-selected', String(on));
     });
-    workCards.forEach(card => card.classList.toggle('is-visible', card.dataset.workType === type));
-  }));
-
-  const priceTabs = [...document.querySelectorAll('[data-price-filter]')];
-  const priceCards = [...document.querySelectorAll('[data-price-type]')];
-  priceTabs.forEach(tab => tab.addEventListener('click', () => {
-    const type = tab.dataset.priceFilter;
-    priceTabs.forEach(t => {
-      const on = t === tab;
-      t.classList.toggle('is-active', on);
-      t.setAttribute('aria-selected', String(on));
+    workCards.forEach(card => {
+      const visible = card.dataset.workType === type;
+      card.classList.toggle('is-visible', visible);
+      if (!visible) pauseAudios(card);
     });
-    priceCards.forEach(card => card.classList.toggle('is-visible', card.dataset.priceType === type));
   }));
 
   const guideTabs = [...document.querySelectorAll('[data-guide-filter]')];
@@ -273,28 +368,54 @@ document.addEventListener('DOMContentLoaded', () => {
   guideTabs.forEach(tab => tab.addEventListener('click', () => showGuide(tab.dataset.guideFilter)));
   showGuide('flow');
 
-  const formToggle = document.querySelector('[data-toggle-form]');
-  const formWrap = document.querySelector('.jp-contact-form-wrap');
-  if (formToggle && formWrap) {
-    formToggle.addEventListener('click', () => {
-      const open = formWrap.hidden;
-      formWrap.hidden = !open;
-      formToggle.classList.toggle('is-open', open);
-      formToggle.setAttribute('aria-expanded', String(open));
-      const small = formToggle.querySelector('small');
-      if (small) small.textContent = open ? 'もう一度クリックすると閉じます' : 'クリックすると入力フォームが開きます';
-      if (open) setTimeout(() => formWrap.scrollIntoView({behavior:'smooth',block:'start'}), 60);
+  if (formToggle && formWrap) formToggle.addEventListener('click', () => setFormOpen(formWrap.hidden, true));
+
+  const allAudios = [...document.querySelectorAll('audio')];
+  const beforeAudio = document.querySelector('.jp-ba-audio:not(.after) audio');
+  const afterAudio = document.querySelector('.jp-ba-audio.after audio');
+  allAudios.forEach(audio => audio.addEventListener('play', () => {
+    allAudios.forEach(other => {
+      if (other !== audio) other.pause();
     });
+    const paired = audio === beforeAudio ? afterAudio : audio === afterAudio ? beforeAudio : null;
+    if (paired && Number.isFinite(audio.currentTime)) {
+      const max = Number.isFinite(paired.duration) ? paired.duration : audio.currentTime;
+      paired.currentTime = Math.min(audio.currentTime, max);
+    }
+  }));
+
+  function tawkReady() {
+    return Boolean(window.Tawk_API && typeof window.Tawk_API.maximize === 'function');
   }
-});
+  function setChatFallback(visible) {
+    if (chatFallback) chatFallback.hidden = !visible;
+  }
+  setChatFallback(false);
+  let tawkChecks = 0;
+  function checkTawkAvailability() {
+    if (tawkReady()) {
+      setChatFallback(false);
+      return;
+    }
+    tawkChecks += 1;
+    if (tawkChecks >= 20) setChatFallback(true);
+    // Keep checking after the loading notice, at a lower frequency, for delayed loads.
+    setTimeout(checkTawkAvailability, tawkChecks < 20 ? 500 : 2000);
+  }
+  setTimeout(checkTawkAvailability, 500);
 
-
-// JP V5 — open Tawk.to from custom site buttons.
-document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-open-livechat]').forEach(button => {
     button.addEventListener('click', () => {
-      if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') { window.Tawk_API.maximize(); return; }
-      let tries=0; const timer=setInterval(()=>{ tries++; if(window.Tawk_API && typeof window.Tawk_API.maximize==='function'){clearInterval(timer);window.Tawk_API.maximize();}else if(tries>=20){clearInterval(timer);}},250);
+      if (tawkReady()) {
+        setChatFallback(false);
+        window.Tawk_API.maximize();
+        return;
+      }
+      setChatFallback(true);
     });
   });
+  document.querySelectorAll('[data-fallback-contact]').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    openContact();
+  }));
 });

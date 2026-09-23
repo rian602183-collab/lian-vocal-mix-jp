@@ -13,7 +13,7 @@
 - 내부 HTML 로컬 파일 링크 누락 없음
 - 공개 후기의 한국식 `ㅎ.ㅎ`, `ㄱㄱ` 제거
 - 한국 사이트 URL은 언어 전환 링크에만 사용
-- Kakao fallback은 일본 프로젝트 `https://deft-gaufre-e346cc.netlify.app/`로 통일
+- Kakao fallback은 현재 일본 프로젝트 `https://lian-vocal-mix-jp.netlify.app/`로 통일
 
 ## 배포 후에만 확인 가능한 최종 4개
 1. Netlify 문의폼 실제 제출

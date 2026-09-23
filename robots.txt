@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lian-vocal-mix-jp.netlify.app/sitemap.xml

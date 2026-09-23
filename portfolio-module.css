@@ -1,0 +1,57 @@
+/* Local aliases inherit the site's existing V7.2.5 palette. No global token overrides. */
+.lian-portfolio-module{--pf-ink:var(--lian-ink,#17354b);--pf-muted:var(--lian-muted,#52697c);--pf-line:var(--lian-line,#d9e4ee);--pf-blue:var(--lian-action,#426bb4);--pf-wash:var(--lian-wash,#f0f5fc);color:var(--pf-ink);line-height:1.7}
+.lian-portfolio-module *{box-sizing:border-box}
+.lian-portfolio-module [hidden]{display:none!important}
+.lian-portfolio-module .lian-section{margin:0;padding:0}
+.lian-portfolio-module .lian-section+.lian-section{margin-top:48px;padding-top:38px;border-top:1px solid var(--pf-line)}
+.lian-portfolio-module .lian-eyebrow{margin:0 0 8px;color:var(--pf-blue);font-size:11px;font-weight:800;letter-spacing:.17em}
+.lian-portfolio-module h2{font-size:34px;line-height:1.4;letter-spacing:-.025em;margin:0 0 12px;text-wrap:pretty}
+.lian-portfolio-module .lian-lead{color:var(--pf-muted);max-width:800px;margin:0 0 26px;font-size:14px}
+.lian-portfolio-module .lian-featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.lian-portfolio-module .lian-featured-card,.lian-portfolio-module .lian-work-card,.lian-portfolio-module .lian-ab-grid>article{min-width:0;background:var(--lian-paper,#fff);border:1px solid var(--pf-line);border-radius:20px;padding:20px;box-shadow:0 10px 28px rgba(23,53,75,.035)}
+.lian-portfolio-module .lian-featured-card{background:linear-gradient(145deg,#fff 40%,#f0f5fc)}
+.lian-portfolio-module .lian-featured-card h3,.lian-portfolio-module .lian-work-card h3{font-size:18px;margin:12px 0 16px;line-height:1.5;overflow-wrap:anywhere;min-height:54px}
+.lian-portfolio-module .lian-work-meta{display:flex;justify-content:space-between;gap:10px;color:var(--pf-muted);font-size:10px;font-weight:800;letter-spacing:.06em}
+.lian-portfolio-module audio{display:block;width:100%;min-width:0;height:42px}
+.lian-portfolio-module .lian-demo-tabs{display:flex;gap:8px;margin:26px 0;padding:5px;background:var(--pf-wash);border-radius:999px;width:max-content;max-width:100%}
+.lian-portfolio-module .lian-demo-tabs button{border:0;background:transparent;color:var(--pf-muted);padding:11px 18px;min-height:44px;border-radius:999px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+.lian-portfolio-module .lian-demo-tabs button.is-active{background:#fff;color:var(--pf-ink);box-shadow:0 4px 16px rgba(25,61,95,.08)}
+.lian-portfolio-module .lian-demo-set{padding:26px 0 30px;border-bottom:1px solid var(--pf-line)}
+.lian-portfolio-module .lian-demo-set:first-child{padding-top:4px}
+.lian-portfolio-module .lian-demo-set:last-of-type{border-bottom:0;padding-bottom:8px}
+.lian-portfolio-module .lian-demo-set-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.lian-portfolio-module .lian-demo-set-head h3{font-size:22px;line-height:1.4;margin:4px 0 0;overflow-wrap:anywhere}
+.lian-portfolio-module .lian-demo-kicker{color:var(--pf-muted);font-size:10px;font-weight:800;letter-spacing:.11em}
+.lian-portfolio-module .lian-demo-time{flex-shrink:0;font-size:11px;font-weight:800;color:var(--pf-muted);background:var(--pf-wash);border-radius:999px;padding:5px 10px}
+.lian-portfolio-module .lian-ab-grid{display:grid;grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr);gap:16px;align-items:stretch}
+.lian-portfolio-module .lian-ab-grid>article{padding:24px}
+.lian-portfolio-module .lian-ab-grid h4{font-size:18px;margin:8px 0 4px}
+.lian-portfolio-module .lian-ab-grid p{color:var(--pf-muted);font-size:14px;margin:0 0 14px}
+.lian-portfolio-module .lian-demo-label{display:inline-flex;padding:5px 10px;border-radius:999px;background:var(--pf-wash);color:var(--pf-muted);font-size:11px;font-weight:800;letter-spacing:.08em}
+.lian-portfolio-module .lian-demo-label.lian-after{background:#f0edfb;color:#555487}
+.lian-portfolio-module .lian-demo-arrow{display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--pf-muted)}
+.lian-portfolio-module .lian-note{font-size:12px;line-height:1.8;color:var(--pf-muted);margin:16px 4px 0}
+.lian-portfolio-module .lian-work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.lian-portfolio-module .lian-tags{display:flex;gap:6px;margin-top:14px}
+.lian-portfolio-module .lian-tags span{font-size:10px;font-weight:800;color:var(--pf-muted);background:var(--pf-wash);border-radius:999px;padding:4px 8px}
+.lian-portfolio-module .lian-more-wrap{text-align:center;margin-top:24px}
+.lian-portfolio-module .lian-more{border:1px solid var(--pf-line);background:#fff;color:var(--pf-ink);border-radius:999px;padding:12px 22px;min-height:44px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+.lian-portfolio-module .lian-more:hover{background:var(--pf-wash)}
+.lian-portfolio-module button:focus-visible,.lian-portfolio-module [role=tabpanel]:focus-visible{outline:3px solid var(--lian-blue,#5b87d9);outline-offset:3px}
+@media(max-width:900px){
+  .lian-portfolio-module .lian-featured-grid,.lian-portfolio-module .lian-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lian-portfolio-module .lian-ab-grid{grid-template-columns:minmax(0,1fr)}
+  .lian-portfolio-module .lian-demo-arrow{transform:rotate(90deg);height:24px}
+}
+@media(max-width:700px){
+  .lian-portfolio-module .lian-section+.lian-section{margin-top:32px;padding-top:28px}
+  .lian-portfolio-module h2{font-size:28px;line-height:1.5}
+  .lian-portfolio-module .lian-lead{margin-bottom:22px;font-size:13px}
+  .lian-portfolio-module .lian-featured-grid,.lian-portfolio-module .lian-work-grid{grid-template-columns:minmax(0,1fr)}
+  .lian-portfolio-module .lian-featured-card,.lian-portfolio-module .lian-work-card,.lian-portfolio-module .lian-ab-grid>article{border-radius:18px;padding:18px}
+  .lian-portfolio-module .lian-featured-card h3,.lian-portfolio-module .lian-work-card h3{min-height:0}
+  .lian-portfolio-module .lian-demo-tabs{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:22px 0}
+  .lian-portfolio-module .lian-demo-tabs button{padding:10px 6px;font-size:12px}
+  .lian-portfolio-module .lian-demo-set-head{align-items:flex-start}
+  .lian-portfolio-module .lian-demo-set-head h3{font-size:20px}
+}

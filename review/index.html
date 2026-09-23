@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'">
+  <title>ご依頼後のレビュー | Lian Vocal MIX</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/jp.css">
+  <link rel="stylesheet" href="/jp-brand-v71.css">
+  <link rel="stylesheet" href="/review/review.css">
+  <script src="/review/review.js" defer></script>
+</head>
+<body class="jp-site">
+  <main class="lian-review-shell">
+    <a class="lian-review-brand" href="/">Lian <span>VOCAL MIX</span></a>
+    <section class="lian-review-card">
+      <span class="jp-eyebrow">AFTER YOUR MIX</span>
+      <h1>MIXのご感想をお聞かせください。</h1>
+      <p>このたびはご依頼いただき、ありがとうございます。仕上がりやご相談の感想をお聞かせいただけると嬉しいです。</p>
+      <p id="review-state" role="status">専用リンクを確認しています。</p>
+      <button id="review-retry" type="button" class="secondary" hidden>もう一度確認する</button>
+      <noscript><p>このフォームをご利用いただくにはJavaScriptを有効にしてください。</p></noscript>
+      <form id="review-form" hidden>
+        <fieldset id="review-fields" disabled>
+          <legend class="review-sr-only">ご依頼後のレビュー</legend>
+          <label for="review-name">活動名 / 表示名 <span>必須</span></label>
+          <input id="review-name" name="displayName" maxlength="60" required autocomplete="nickname">
+          <label class="review-consent" for="review-anonymous"><input id="review-anonymous" name="anonymousDisplay" type="checkbox" aria-describedby="review-anonymous-help"><span>サイトでは匿名で掲載する</span></label>
+          <p id="review-anonymous-help" class="review-help">公開名を「匿名」にします。活動名は管理用に保存されます。公開には別途、下の掲載同意が必要です。</p>
+          <label for="review-song">曲名 <span>任意</span></label>
+          <input id="review-song" name="songTitle" maxlength="120">
+          <label for="review-rating">満足度 <span>必須</span></label>
+          <select id="review-rating" name="rating" required><option value="">選択してください</option><option value="5">★★★★★（5）</option><option value="4">★★★★☆（4）</option><option value="3">★★★☆☆（3）</option><option value="2">★★☆☆☆（2）</option><option value="1">★☆☆☆☆（1）</option></select>
+          <label for="review-body">レビュー <span>必須</span></label>
+          <textarea id="review-body" name="body" required maxlength="2000" rows="6" aria-describedby="review-body-help"></textarea>
+          <small id="review-body-help">2,000文字以内。連絡先などの個人情報は書かないでください。</small>
+          <label class="review-consent" for="review-consent"><input id="review-consent" name="consent" type="checkbox"><span>表示名（匿名を選択した場合は「匿名」）・曲名・満足度・レビューのサイト掲載に同意します。</span></label>
+          <p class="review-help">同意しない場合は、Lianへの感想としてのみお預かりします。公開には内容の確認が必要です。</p>
+          <div class="review-hp" aria-hidden="true"><label for="review-website">Website</label><input id="review-website" name="website" tabindex="-1" autocomplete="off"></div>
+          <button id="review-send" type="submit">レビューを送信する</button>
+        </fieldset>
+      </form>
+      <p class="review-help">このリンクは、ご依頼完了後にお送りした方専用です。送信は1回のみです。</p>
+    </section>
+  </main>
+</body>
+</html>

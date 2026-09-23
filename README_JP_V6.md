@@ -4,7 +4,7 @@
 1. `thanks.html`에도 tawk.to Live Chat 위젯 추가
    - 문의폼 전송 후 완료 페이지에서도 채팅 유지
 2. 일본용 Kakao OAuth callback의 기본 fallback 주소를 한국 사이트에서 분리
-   - 현재 일본 Netlify 후보 `deft-gaufre-e346cc.netlify.app`
+   - 현재 일본 Netlify 사이트 `lian-vocal-mix-jp.netlify.app`
    - 실제 운영에서는 `PUBLIC_SITE_URL` 환경변수가 우선
 3. 후기 일본어 문장에 남아 있던 한국식 문자 제거
    - `ㅎ.ㅎ` 제거
