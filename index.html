@@ -33,8 +33,11 @@
   <link rel="stylesheet" href="jp-v721.css">
   <link rel="stylesheet" href="paypal-checkout.css">
   <link rel="stylesheet" href="portfolio-module.css">
+  <link rel="stylesheet" href="jp-v728.css">
+  <link rel="stylesheet" href="jp-v729.css">
+  <link rel="stylesheet" href="jp-v730.css">
 </head>
-<body class="jp-site" id="top">
+<body class="jp-site v728-linear" id="top">
 
 <header class="site-header jp-header">
   <div class="container nav">
@@ -48,17 +51,16 @@
 
     <div class="header-actions">
       <nav class="nav-links" aria-label="メインメニュー">
-        <a href="#works">作品</a>
-        <a href="#price">料金</a>
-        <a href="#guide">ご依頼の流れ</a>
-        <a href="#contact">ご相談</a>
+        <a href="#works">WORKS</a>
+        <a href="#price">PRICE</a>
+        <a href="#reviews">REVIEWS</a>
       </nav>
 
       <a class="lang-switch jp-lang" href="https://lian-vocal-mix.netlify.app/" aria-label="韓国語サイトへ">한국어</a>
 
-      <a class="header-cta jp-x-cta" href="https://x.com/Lian5602" target="_blank" rel="noopener">
+      <a class="header-cta jp-x-cta" href="#contact">
         <span class="status-dot" aria-hidden="true"></span>
-        Xで相談
+        無料相談
       </a>
 
       <button class="mobile-menu" data-mobile-menu type="button" aria-label="メニューを開く" aria-expanded="false">
@@ -70,17 +72,18 @@
 
 <main>
   <section class="jp-hero">
-    <div class="container jp-hero-status">
-      <span class="jp-open"><i class="status-dot"></i> ご依頼受付中</span>
-      <span>初めての方も歓迎</span>
-      <span>SOLO · DUET · GROUP</span>
+    <div class="container jp-hero-status v728-hero-facts" aria-label="サービス概要">
+      <span class="jp-open"><i class="status-dot"></i> 現在受付中</span>
+      <span><b>¥4,000〜</b> Vocal MIX</span>
+      <span>初めてでもOK</span>
+      <span>PayPal対応</span>
     </div>
 
     <div class="container jp-hero-grid">
       <div class="jp-hero-copy">
         <div class="jp-kicker"><strong>Lian</strong><span>VOCAL MIX ENGINEER</span></div>
         <h1>歌ってみたを、<br><span>もっと綺麗に。</span></h1>
-        <p class="jp-hero-lead">あなたの声らしさを活かしながら、<span class="jp-phrase">透明感と聴きやすさのあるMIXへ。</span><wbr>J-POP・ボカロ・歌ってみたを中心に、<wbr>ピッチ・タイミング補正から<wbr><span class="jp-phrase">MIX・マスタリングまで</span>丁寧に仕上げます。</p>
+        <p class="jp-hero-lead">歌ってみた・J-POP・ボカロを中心に、声らしさを残した自然な補正と、ボーカルが埋もれにくいクリアなMIXへ。<br><strong>録音前・プラン未定でもご相談いただけます。</strong></p>
 
 
       </div>
@@ -112,18 +115,17 @@
 
         <div class="jp-feature-tags"><span>自然な補正</span><span>声の存在感</span><span>やわらかな空間</span></div>
         <audio data-portfolio-hero-audio controls preload="none" src="assets/audio/my_name_clear.mp3" aria-label="내 이름 맑음 · LIAN’S SOUND"></audio>
-        <button class="jp-sample-chat" type="button" data-open-livechat>料金・納期をチャットで相談</button>
       </div>
       <div class="jp-hero-footer">
         <div class="jp-hero-actions">
-          <a class="btn primary" href="#contact">MIXを相談する</a>
-          <a class="btn secondary" href="#works">ほかのMIXも聴く <span aria-hidden="true">↓</span></a>
+          <a class="btn primary" href="#contact">無料で相談・見積り</a>
+          <a class="btn secondary" href="#works">MIXサンプルを聴く <span aria-hidden="true">↓</span></a>
         </div>
 
         <div class="jp-trust-row">
-          <span>✓ 修正3回まで無料</span>
+          <span>✓ 録音前相談OK</span>
           <span>✓ スマホ録音も相談OK</span>
-          <span>✓ グループMIX対応</span>
+          <span>✓ 修正3回まで無料</span>
         </div>
       </div>
     </div>
@@ -138,20 +140,8 @@
     </div>
   </section>
 
-  <section class="jp-click-nav-wrap" aria-label="コンテンツメニュー">
-    <div class="container">
-      <div class="jp-click-nav" role="tablist" aria-label="サイト情報を切り替える">
-        <button class="jp-click-tab is-active" type="button" role="tab" data-panel-target="works" id="main-tab-works" aria-controls="works" aria-selected="true" tabindex="0">作品</button>
-        <button class="jp-click-tab" type="button" role="tab" data-panel-target="price" id="main-tab-price" aria-controls="price" aria-selected="false" tabindex="-1">料金</button>
-        <button class="jp-click-tab" type="button" role="tab" data-panel-target="guide" id="main-tab-guide" aria-controls="guide" aria-selected="false" tabindex="-1">ご依頼</button>
-        <button class="jp-click-tab" type="button" role="tab" data-panel-target="reviews" id="main-tab-reviews" aria-controls="reviews" aria-selected="false" tabindex="-1">レビュー</button>
-        <button class="jp-click-tab" type="button" role="tab" data-panel-target="contact" id="main-tab-contact" aria-controls="contact" aria-selected="false" tabindex="-1">ご相談</button>
-      </div>
-      <p class="jp-click-hint">サンプル・料金・ご依頼の流れ・レビュー・ご相談<span class="jp-swipe-hint">横にスワイプできます →</span></p>
-    </div>
-  </section>
 
-  <section class="jp-section jp-works-section jp-panel is-active" id="works" data-jp-panel="works" role="tabpanel" aria-labelledby="main-tab-works">
+  <section class="jp-section jp-works-section jp-panel is-active" id="works" data-jp-panel="works">
     <div class="container">
       <div class="lian-portfolio-module" id="portfolio-v727">
 <!-- PORTFOLIO:START -->
@@ -307,123 +297,118 @@
     </div>
   </section>
 
-  <section class="jp-section jp-price-section jp-panel" id="price" data-jp-panel="price" role="tabpanel" aria-labelledby="main-tab-price" hidden>
+  <section class="jp-section jp-price-section jp-panel" id="price" data-jp-panel="price">
     <div class="container">
-      <div class="jp-section-head">
+      <div class="jp-section-head v728-section-head">
         <div><span class="jp-eyebrow">MIX MENU</span><h2>料金プラン</h2></div>
-        <p>声の状態と、仕上がりのイメージに合わせて。3つのプランからご相談いただけます。</p>
+        <p>まずは3つの基本プランから。迷った場合は、音源を確認してご案内します。</p>
       </div>
 
-      <div class="jp-price-grid">
+      <div class="v728-payment-strip" aria-label="お支払い方法">
+        <div class="v728-payment-icon" aria-hidden="true">P</div>
+        <div><span>お支払い方法</span><strong>PayPal</strong><small>お見積り確定後にご案内 → お支払い確認後に作業開始</small></div>
+        <a href="#guide">依頼の流れを見る</a>
+      </div>
+
+      <div class="jp-price-grid v728-price-grid">
         <article class="jp-price-card" data-price-type="light">
-          <span class="jp-price-name">LIGHT</span>
+          <div class="v728-plan-top"><span class="v728-plan-icon" aria-hidden="true">01</span><span class="jp-price-name">LIGHT</span></div>
           <div class="jp-price">¥4,000</div>
+          <p class="v729-solo-label">Solo · 1名</p>
+          <p class="v728-for"><b>シンプルに綺麗に仕上げたい方へ</b></p>
           <p class="jp-price-caption">録音状態が良く、基本的なMIXを希望する方向け。</p>
           <ul><li>基本ボーカルMIX</li><li>簡易ピッチ補正</li><li>基本的な空間処理</li><li>マスタリング</li></ul>
-          <a href="#contact" class="btn secondary">相談する</a>
+          <a href="#contact" class="btn secondary">LIGHTで相談</a>
         </article>
 
         <article class="jp-price-card recommended is-visible" data-price-type="standard">
-          <span class="jp-rec-badge">おすすめ</span>
-          <span class="jp-price-name">STANDARD</span>
+          <span class="jp-rec-badge">一番おすすめ</span>
+          <div class="v728-plan-top"><span class="v728-plan-icon" aria-hidden="true">02</span><span class="jp-price-name">STANDARD</span></div>
           <div class="jp-price">¥5,500</div>
+          <p class="v729-solo-label">Solo · 1名</p>
+          <p class="v728-for"><b>投稿用にしっかり仕上げたい方へ</b></p>
           <p class="jp-price-caption">一般的な歌ってみた・カバー曲におすすめ。</p>
           <ul><li>丁寧なピッチ・タイミング補正</li><li>ボーカルトーン・バランス調整</li><li>空間処理・オートメーション</li><li>MIX・マスタリング</li></ul>
-          <a href="#contact" class="btn primary">相談する</a>
+          <a href="#contact" class="btn primary">STANDARDで相談</a>
         </article>
 
         <article class="jp-price-card" data-price-type="deluxe">
-          <span class="jp-price-name">DELUXE</span>
+          <div class="v728-plan-top"><span class="v728-plan-icon" aria-hidden="true">03</span><span class="jp-price-name">DELUXE</span></div>
           <div class="jp-price">¥6,500<span>〜</span></div>
+          <p class="v729-solo-label">Solo · 1名</p>
+          <p class="v728-for"><b>ハモリ・ダブル・演出まで作り込みたい方へ</b></p>
           <p class="jp-price-caption">トラック数が多い、編集・演出が複雑な楽曲向け。</p>
           <ul><li>STANDARD内容を含む</li><li>複雑なトラック編集</li><li>ダブル・ハモリ・アドリブの基本整理</li><li>細かな演出・オートメーション</li></ul>
-          <a href="#contact" class="btn secondary">相談する</a>
+          <a href="#contact" class="btn secondary">DELUXEで相談</a>
         </article>
       </div>
 
-      <div class="jp-option-board">
-        <div><span>DUET</span><strong>選択プラン +¥3,500〜</strong><p>2人のボーカルバランス・パート整理を含みます。</p></div>
-        <div><span>GROUP</span><strong>3人目から +¥2,000 / 人〜</strong><p>3人の場合はデュエット追加分を含め +¥5,500〜。</p></div>
-        <div><span>追加トラック</span><strong>+¥500 / track</strong><p>基本範囲を超える追加ボーカルトラック。</p></div>
-        <div><span>基本範囲を超える多数のハモリ・コーラス</span><strong>+¥1,000〜</strong><p>基本範囲以上のレイヤー整理が必要な場合。</p></div>
-        <div><span>基本範囲を超えるダブル・アドリブの追加整理</span><strong>+¥1,000〜</strong><p>追加の細かな編集が必要な場合。</p></div>
-        <div><span>サンプル・ポートフォリオ完全非公開</span><strong>+¥2,000</strong><p>完成音源をサンプル・ポートフォリオに掲載しない場合のオプションです。</p></div>
+      <div class="v729-group-price-strip" aria-label="2名以上の料金">
+        <span>DUET / GROUP · 2名以上</span>
+        <b>LIGHT <strong>¥4,000 / 人</strong></b>
+        <b>STANDARD <strong>¥5,000 / 人</strong></b>
+        <b>DELUXE <strong>¥6,000 / 人〜</strong></b>
+        <small>10名以上・複雑なトラック構成は内容確認後に最終見積り</small>
       </div>
 
-      <div class="jp-price-notes">
-        <span>修正 <b>3回まで無料</b> / 4回目以降 +¥500 / 回</span>
-        <span>お急ぎ対応：48時間以内 <b>合計 +30%</b></span>
-        <span>お急ぎ対応：当日納品 <b>合計 +50%</b></span>
-      </div>
+      <details class="v728-price-details">
+        <summary><span>追加料金・詳しい条件を見る</span><small>DUET / GROUP / オプション / お急ぎ</small></summary>
+        <div class="jp-option-board">
+          <div><span>DUET / GROUP</span><strong>LIGHT ¥4,000 / 人<br>STANDARD ¥5,000 / 人<br>DELUXE ¥6,000 / 人〜</strong><p>2名以上は人数 × 各プランの人数単価で計算します。Solo料金とは別のグループ料金です。</p></div>
+          <div><span>10名以上</span><strong>事前見積り</strong><p>自動計算額を目安として表示します。トラック数・ハモリ・パート構成を確認後、お支払い前に最終料金をご案内します。</p></div>
+          <div><span>追加トラック</span><strong>+¥500 / track</strong><p>基本範囲を超える追加ボーカルトラック。</p></div>
+          <div><span>基本範囲を超える多数のハモリ・コーラス</span><strong>+¥1,000〜</strong><p>基本範囲以上のレイヤー整理が必要な場合。</p></div>
+          <div><span>基本範囲を超えるダブル・アドリブの追加整理</span><strong>+¥1,000〜</strong><p>追加の細かな編集が必要な場合。</p></div>
+          <div><span>サンプル・ポートフォリオ完全非公開</span><strong>+¥2,000</strong><p>完成音源をサンプル・ポートフォリオに掲載しない場合のオプションです。</p></div>
+        </div>
+        <div class="jp-price-notes">
+          <span>修正 <b>3回まで無料</b> / 4回目以降 +¥500 / 回</span>
+          <span>お急ぎ対応：48時間以内 <b>合計 +30%</b></span>
+          <span>お急ぎ対応：当日納品 <b>合計 +50%</b></span>
+        </div>
+      </details>
     </div>
   </section>
 
-  <section class="jp-section jp-panel" id="guide" data-jp-panel="guide" role="tabpanel" aria-labelledby="main-tab-guide" hidden>
+  <section class="jp-section jp-panel v728-guide-section" id="guide" data-jp-panel="guide">
     <div class="container">
-      <div class="jp-section-head">
-        <div><span class="jp-eyebrow">HOW TO ORDER</span><h2>ご依頼ガイド</h2></div>
-        <p>知りたい内容をクリックして確認できます。</p>
+      <div class="jp-section-head v728-section-head">
+        <div><span class="jp-eyebrow">HOW TO ORDER</span><h2>ご依頼の流れ</h2></div>
+        <p>お問い合わせから納品まで、6ステップで進みます。録音前のご相談でも大丈夫です。</p>
       </div>
 
-      <div class="jp-subtabs jp-guide-tabs" role="tablist" aria-label="ご依頼ガイド">
-        <button class="jp-subtab is-active" type="button" role="tab" data-guide-filter="flow" id="guide-tab-flow" aria-controls="guide-pane-flow" tabindex="0" aria-selected="true">ご依頼の流れ</button>
-        <button class="jp-subtab" type="button" role="tab" data-guide-filter="files" id="guide-tab-files" aria-controls="guide-pane-files" tabindex="-1" aria-selected="false">必要なファイル</button>
-        <button class="jp-subtab" type="button" role="tab" data-guide-filter="time" id="guide-tab-time" aria-controls="guide-pane-time" tabindex="-1" aria-selected="false">納期・注意事項</button>
+      <div class="v728-flow" aria-label="ご依頼の6ステップ">
+        <article><span class="v728-flow-no">01</span><span class="v728-flow-icon" aria-hidden="true">●</span><h3>ご相談</h3><p>曲名・人数・希望納期などをお知らせください。</p></article>
+        <article><span class="v728-flow-no">02</span><span class="v728-flow-icon" aria-hidden="true">◎</span><h3>音源確認・お見積り</h3><p>録音ファイルと作業量を確認して料金をご案内します。</p></article>
+        <article class="v728-pay-step"><span class="v728-flow-no">03</span><span class="v728-flow-icon" aria-hidden="true">P</span><h3>PayPalでお支払い</h3><p>内容・料金をご確認後、お支払い確認ができ次第作業を開始します。</p></article>
+        <article><span class="v728-flow-no">04</span><span class="v728-flow-icon" aria-hidden="true">♫</span><h3>MIX作業</h3><p>補正・バランス・空間処理・マスタリングを行います。</p></article>
+        <article><span class="v728-flow-no">05</span><span class="v728-flow-icon" aria-hidden="true">✓</span><h3>確認・修正</h3><p>初稿をご確認いただき、必要な箇所を修正します。</p></article>
+        <article><span class="v728-flow-no">06</span><span class="v728-flow-icon" aria-hidden="true">↓</span><h3>納品</h3><p>最終確認後、WAVを基本に完成データをお渡しします。</p></article>
       </div>
 
-      <div class="jp-flow is-visible" data-guide-panel="flow" id="guide-pane-flow" role="tabpanel" aria-labelledby="guide-tab-flow" tabindex="0">
-        <div><b>01</b><span>ご相談</span><p>曲名・人数・希望納期をお知らせください。</p></div>
-        <div><b>02</b><span>音源確認・お見積り</span><p>録音ファイルと作業量を確認して料金をご案内します。</p></div>
-        <div><b>03</b><span>お支払い</span><p>内容・料金をご確認いただいた後に作業を開始します。</p></div>
-        <div><b>04</b><span>MIX作業</span><p>補正・バランス・空間処理・マスタリングを行います。</p></div>
-        <div><b>05</b><span>確認・修正</span><p>初稿をご確認いただき、必要な箇所を修正します。</p></div>
-        <div><b>06</b><span>納品</span><p>最終確認後、WAVを基本に完成データをお渡しします。</p></div>
-      </div>
-
-      <div class="jp-guide-grid" data-guide-grid>
-        <div class="jp-guide-pane" id="guide-pane-files" role="tabpanel" aria-labelledby="guide-tab-files" tabindex="0" hidden>
-          <article data-guide-panel="files">
-          <span class="jp-guide-icon">FILE</span>
-          <h3>ご用意いただくもの</h3>
-          <ul>
+      <div class="v728-guide-details">
+        <details>
+          <summary><span>録音データ・必要なファイル</span><small>48kHz / 24bit / Mono WAV 推奨</small></summary>
+          <div class="v728-detail-body"><ul>
             <li>ボーカル：48kHz / 24bit / Mono / WAV 推奨</li>
             <li>カラオケ音源（オフボーカル／できれば元の形式）</li>
             <li>原曲URL・歌詞</li>
             <li>参考MIX・希望イメージ・希望納期</li>
             <li>エフェクトをかけていないボーカル原音</li>
-          </ul>
-        </article>
-        </div>
-        <div class="jp-guide-pane" id="guide-pane-time" role="tabpanel" aria-labelledby="guide-tab-time" tabindex="0" hidden>
-          <article data-guide-panel="time">
-          <span class="jp-guide-icon">TIME</span>
-          <h3>通常納期の目安</h3>
-          <ul>
-            <li>Solo：1週間以内</li>
-            <li>Duet：2週間以内</li>
-            <li>Group / Chorus：1週間〜1か月</li>
-            <li>予約状況・トラック数により前後します</li>
-          </ul>
-          <p class="jp-guide-rush-note">48時間以内・当日納品をご希望の場合は、予約状況を確認のうえお急ぎオプションをご案内します。</p>
-        </article>
-          <article data-guide-panel="time">
-          <span class="jp-guide-icon">NOTE</span>
-          <h3>大切なご案内</h3>
-          <ul>
-            <li>録音状態によっては再録音をお願いする場合があります</li>
-            <li>大きな方向変更・全差し替えは追加料金や納期変更の対象になる場合があります</li>
-            <li>掲載候補となる場合は事前にご案内します。最初から完全非公開をご希望の場合は非公開オプションをご選択ください。</li>
-          </ul>
-        </article>
-        </div>
+          </ul></div>
+        </details>
+        <details>
+          <summary><span>納期・大切なご案内</span><small>Solo / Duet / Group・お急ぎ対応</small></summary>
+          <div class="v728-detail-body v728-detail-columns">
+            <div><h3>通常納期の目安</h3><ul><li>Solo：1週間以内</li><li>Duet：2週間以内</li><li>Group / Chorus：1週間〜1か月</li><li>予約状況・トラック数により前後します</li></ul><p>48時間以内・当日納品は、予約状況を確認のうえお急ぎオプションをご案内します。</p></div>
+            <div><h3>大切なご案内</h3><ul><li>録音状態によっては再録音をお願いする場合があります</li><li>大きな方向変更・全差し替えは追加料金や納期変更の対象になる場合があります</li><li>掲載候補となる場合は事前にご案内します。最初から完全非公開をご希望の場合は非公開オプションをご選択ください。</li></ul></div>
+          </div>
+        </details>
       </div>
-      <template id="paypal-payment-guide">
-        <aside class="jp-payment-note"><h3>お支払いについて</h3><p>ご相談 → お見積り → PayPalでお支払い → 作業開始 → 納品</p><p>お見積りをご確認いただいた後に、お支払い方法をご案内します。</p></aside>
-      </template>
     </div>
   </section>
 
-  <section class="jp-section jp-reviews-section jp-panel" id="reviews" data-jp-panel="reviews" role="tabpanel" aria-labelledby="main-tab-reviews" hidden>
+  <section class="jp-section jp-reviews-section jp-panel" id="reviews" data-jp-panel="reviews">
     <div class="container">
       <div class="jp-section-head">
         <div><span class="jp-eyebrow">REVIEWS</span><h2>ご依頼者様の声</h2></div>
@@ -446,47 +431,116 @@
     </div>
   </section>
 
-  <section class="jp-section jp-contact-section jp-panel" id="contact" data-jp-panel="contact" role="tabpanel" aria-labelledby="main-tab-contact" hidden>
+  <section class="jp-section jp-contact-section jp-panel" id="contact" data-jp-panel="contact">
     <div class="container">
       <div class="jp-contact-intro">
         <div>
           <span class="jp-eyebrow">CONTACT</span>
           <h2><span>まずは気軽に</span><wbr><span>ご相談ください。</span></h2>
-          <p>曲名・人数・希望納期・参考音源などをお知らせいただけると、スムーズにご案内できます。</p>
+          <p>依頼するか決まっていなくても大丈夫です。サイトフォームまたはXのDMから気軽にご相談ください。</p>
         </div>
 
       </div>
 
-      <div class="jp-contact-actions">
-        <button class="jp-livechat-card" type="button" data-open-livechat>
-          <span class="jp-livechat-status"><i></i> LIVE CHAT</span>
-          <strong>チャットで相談</strong>
-          <small>確認後、順番に返信いたします。</small>
-          <small class="jp-chat-reassurance">登録不要・そのままご相談いただけます</small>
-        </button>
+      <div class="v730-contact-hub" id="quick-consult">
+        <section class="v730-answer-card" aria-labelledby="v730-answer-title">
+          <div class="v730-answer-head">
+            <span class="v730-kicker">PRICE / DEADLINE · すぐ確認</span>
+            <h3 id="v730-answer-title">料金・納期だけ知りたい方へ</h3>
+            <p>チャットの返信を待たなくても、まず下の目安をご確認いただけます。正確な料金・納期は音源と予約状況を確認後にご案内します。</p>
+          </div>
+          <div class="v730-fact-grid" aria-label="料金と通常納期の目安">
+            <div><span>Solo料金</span><strong>¥4,000〜</strong><small>STANDARD ¥5,500 · DELUXE ¥6,500〜</small></div>
+            <div><span>通常納期の目安</span><strong>Solo · 1週間以内</strong><small>Duet · 2週間以内 / Group · 1週間〜1か月</small></div>
+          </div>
+          <div class="v730-chat-intents" aria-label="チャットの相談内容">
+            <button type="button" data-open-livechat data-chat-intent="pricing">料金・納期を確認する</button>
+            <button type="button" data-open-livechat data-chat-intent="mix">MIXについて相談する</button>
+            <button type="button" data-open-livechat data-chat-intent="recording">録音について相談する</button>
+          </div>
+          <p class="v730-chat-status" data-chat-status role="status" aria-live="polite">チャット接続状況を確認中…</p>
+        </section>
 
+        <section class="v730-quick-card" aria-labelledby="v730-quick-title">
+          <div class="v730-quick-head">
+            <span class="v730-kicker">30 SEC CONSULTATION · おすすめ</span>
+            <h3 id="v730-quick-title">返信先だけでも送れます</h3>
+            <p>チャットを閉じても連絡できるように、Xまたはメールを1つだけ残してください。曲名・人数・希望日は分かる範囲で大丈夫です。</p>
+          </div>
+          <form class="v730-quick-form" id="quick-consult-form" name="mix-quick-ui" method="post" action="/thanks.html">
+            <input type="hidden" name="form-name" value="mix-consultation">
+            <input type="hidden" name="site_language" value="JP">
+            <input type="hidden" name="form_variant" value="V7.3_quick">
+            <input type="hidden" name="subject" data-remove-prefix value="[Lian MIX JP] 30秒相談 · %{submissionId}">
+            <input type="hidden" name="page_url" data-context="page_url">
+            <input type="hidden" name="referrer" data-context="referrer">
+            <input type="hidden" name="utm_source" data-context="utm_source">
+            <input type="hidden" name="utm_medium" data-context="utm_medium">
+            <input type="hidden" name="utm_campaign" data-context="utm_campaign">
+            <input type="hidden" name="chat_status" data-context="chat_status">
+            <p class="hp-field" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+            <fieldset class="v730-intent-field">
+              <legend>ご相談内容</legend>
+              <label><input type="radio" name="plan" value="30秒相談 · 料金・納期" checked><span>料金・納期</span></label>
+              <label><input type="radio" name="plan" value="30秒相談 · MIX相談"><span>MIX相談</span></label>
+              <label><input type="radio" name="plan" value="30秒相談 · 録音相談"><span>録音相談</span></label>
+            </fieldset>
+
+            <div class="field v730-required-field">
+              <label for="quick-reply-to">返信先（Xまたはメール） *</label>
+              <input id="quick-reply-to" name="sns_id" maxlength="300" required placeholder="@X_ID または example@email.com">
+              <small>XのID・プロフィールURL・メールアドレスのいずれか1つでOKです。</small>
+            </div>
+
+            <details class="v730-optional-details">
+              <summary>曲名・人数・希望日も入力する <span>任意</span></summary>
+              <div class="v730-optional-body">
+                <div class="v730-quick-grid">
+                  <div class="field"><label for="quick-artist">お名前 / 活動名</label><input id="quick-artist" name="artist_name" maxlength="100" autocomplete="name" placeholder="活動名"></div>
+                  <div class="field"><label for="quick-song">曲名</label><input id="quick-song" name="song_title" maxlength="300" placeholder="未定でもOK"></div>
+                  <div class="field"><label for="quick-people">人数</label><select id="quick-people" name="people_type"><option value="Solo · 1人">Solo · 1人</option><option value="Duet · 2人">Duet · 2人</option><option value="Group · 3人以上">Group · 3人以上</option><option value="未定">未定</option></select></div>
+                  <div class="field"><label for="quick-deadline">希望納品日</label><input id="quick-deadline" name="deadline" type="date"></div>
+                </div>
+                <div class="field"><label for="quick-message">ひとこと</label><textarea id="quick-message" name="message" maxlength="1200" placeholder="例：10月中に投稿予定です。プラン選びから相談したいです。"></textarea></div>
+              </div>
+            </details>
+
+            <div class="privacy-consent v730-privacy">
+              <label>
+                <input type="checkbox" name="privacy_consent" value="yes" required>
+                <span>お問い合わせへの対応のため、入力した連絡先・相談内容を利用することに同意します。 *</span>
+              </label>
+            </div>
+            <button class="btn primary v730-quick-submit" type="submit">30秒相談を送信する</button>
+            <p class="v730-submit-note">送信後、確認でき次第順番に返信します。即時返信をお約束するものではありません。</p>
+          </form>
+        </section>
+      </div>
+
+      <div class="jp-contact-actions v728-contact-actions v730-more-actions">
         <button class="jp-contact-open" type="button" data-toggle-form aria-controls="contact-form-wrap" aria-expanded="false">
-          <span>WEB FORM</span>
-          <strong>お問い合わせフォーム</strong>
-          <small>クリックすると入力フォームが開きます</small>
+          <span>DETAILED FORM</span>
+          <strong>詳しい見積りフォーム</strong>
+          <small>プラン・オプション・音源URLまでまとめて送る</small>
         </button>
         <a class="jp-big-x" href="https://x.com/Lian5602" target="_blank" rel="noopener">
           <span>X / DM</span>
-          <strong>Xで相談</strong>
+          <strong>Xで気軽に相談</strong>
           <em>@Lian5602</em>
         </a>
       </div>
 
       <div class="jp-chat-fallback" data-chat-fallback hidden role="status">
         <span>CHAT</span>
-        <p>チャットを読み込めませんでした。お問い合わせフォームまたはXをご利用ください。</p>
-        <a href="#contact" data-fallback-contact>お問い合わせフォームを開く</a>
+        <p>チャットを読み込めませんでした。30秒相談フォームならいつでも送信できます。</p>
+        <a href="#quick-consult">30秒相談フォームへ</a>
         <a href="https://x.com/Lian5602" target="_blank" rel="noopener">Xで相談する</a>
       </div>
 
       <div class="jp-contact-layout jp-contact-form-wrap" id="contact-form-wrap" hidden>
         <div class="jp-form-card">
-          <div class="jp-form-title"><span>WEB FORM</span><h3>サイトから相談する</h3><p>送信内容は管理者へメール・通知で届きます。</p><button class="jp-form-chat" type="button" data-open-livechat>チャットで相談</button></div>
+          <div class="jp-form-title"><span>WEB FORM</span><h3>サイトから相談する</h3><p>送信内容は管理者へメール・通知で届きます。</p><button class="jp-form-chat" type="button" data-open-livechat data-chat-intent="mix">チャットで相談</button></div>
 
           <form class="form jp-form" id="contact-form" name="mix-consultation" method="post" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="mix-consultation">
@@ -497,6 +551,13 @@
             <input type="hidden" id="mail-estimate-extra" name="추가_작업_요약" value="選択なし">
             <input type="hidden" id="mail-estimate-rush" name="급행_요약" value="なし">
             <input type="hidden" id="mail-estimate-total" name="예상_최소_금액" value="プランを選択してください">
+            <input type="hidden" name="form_variant" value="V7.3_detailed">
+            <input type="hidden" name="page_url" data-context="page_url">
+            <input type="hidden" name="referrer" data-context="referrer">
+            <input type="hidden" name="utm_source" data-context="utm_source">
+            <input type="hidden" name="utm_medium" data-context="utm_medium">
+            <input type="hidden" name="utm_campaign" data-context="utm_campaign">
+            <input type="hidden" name="chat_status" data-context="chat_status">
             <p class="hp-field" aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
             <div class="jp-form-grid">
@@ -511,13 +572,13 @@
               <div class="field">
                 <label for="people-select">人数</label>
                 <select id="people-select" name="people_type">
-                  <option value="solo">Solo（1人）· 追加なし</option>
-                  <option value="duet">Duet（2人）· +¥3,500〜</option>
-                  <option value="group">Group（3人以上）· 3人 +¥5,500〜</option>
+                  <option value="solo">Solo（1人）</option>
+                  <option value="duet">Duet（2人）· 人数別料金</option>
+                  <option value="group">Group（3人以上）· 人数 × プラン別単価</option>
                 </select>
               </div>
               <div class="field is-hidden" id="group-count-wrap">
-                <label for="group-count">合計人数 <span class="label-help">3人目から +¥2,000 / 人</span></label>
+                <label for="group-count">合計人数 <span class="label-help">L ¥4,000 / S ¥5,000 / D ¥6,000 / 人</span></label>
                 <input id="group-count" name="group_count" type="number" min="3" value="3">
               </div>
               <div class="field">
@@ -586,7 +647,7 @@
           <span class="jp-eyebrow">ESTIMATE</span>
           <h3>料金の目安</h3>
           <div class="jp-estimate-row"><span>プラン</span><strong id="summary-plan">相談後に決定</strong></div>
-          <div class="jp-estimate-row"><span>人数追加</span><strong id="summary-people">¥0</strong></div>
+          <div class="jp-estimate-row"><span>人数</span><strong id="summary-people">Solo · 1人</strong></div>
           <div class="jp-estimate-row"><span>追加オプション</span><strong id="summary-extra">選択なし</strong></div>
           <div class="jp-estimate-row"><span>お急ぎ</span><strong id="summary-rush">なし</strong></div>
           <div class="jp-estimate-total"><span>最低料金の目安</span><strong id="summary-total" aria-live="polite">プランを選択してください</strong></div>
@@ -621,10 +682,10 @@
         <details><summary>スマホ録音でも依頼できますか？</summary><p>可能です。ただし、周囲のノイズや部屋鳴り、録音レベルによって補正できる範囲が変わります。できるだけエフェクトのかかっていない原音をお送りください。</p></details>
         <details><summary>録音データはどの形式で送ればいいですか？</summary><p>WAV（48kHz / 24bit / Mono）を推奨しています。できるだけエフェクトのかかっていないボーカル原音をお送りください。可能であれば、各トラックの開始位置をそろえて書き出してください。難しい場合は事前にご相談いただければ大丈夫です。</p></details>
         <details><summary>ピッチ・タイミング補正は料金に含まれますか？</summary><p>はい。プランによって補正範囲が異なります。STANDARD以上ではより細かく整え、歌い方が不自然に変わりすぎないように作業します。</p></details>
-        <details><summary>デュエット・グループも可能ですか？</summary><p>可能です。2人から複数人のグループ・コーラスまで対応します。人数やトラック構成によって料金・納期が変わります。</p></details>
+        <details><summary>デュエット・グループも可能ですか？</summary><p>可能です。2名以上は、LIGHT ¥4,000 / 人、STANDARD ¥5,000 / 人、DELUXE ¥6,000 / 人〜を基準に計算します。10名以上やトラック数・ハモリ・パート構成が多い場合は、内容確認後に最終料金をご案内します。</p></details>
         <details><summary>修正は何回までできますか？</summary><p>3回まで無料です。4回目以降は +¥500 / 回となります。1回＝一度にまとめていただいた修正内容を1回として数えます。大きな方向変更、全差し替え、再録音後の大幅な差し替えなどは追加料金や納期変更の対象になる場合があります。</p></details>
         <details><summary>納期はどれくらいですか？急ぎでもお願いできますか？</summary><p>通常納期は楽曲・人数・トラック数・予約状況を確認してご案内します。目安としてSoloは1週間以内、Duetは2週間以内、Group / Chorusは1週間〜1か月程度です。48時間以内・当日納品をご希望の場合は、予約状況を確認のうえお急ぎオプションをご案内します。</p></details>
-        <details><summary>支払い方法はいつ案内されますか？</summary><p>お見積り内容をご確認いただいた後に、利用可能なお支払い方法をご案内します。</p></details>
+        <details><summary>支払い方法は何ですか？</summary><p>PayPalに対応しています。お見積り内容・料金をご確認いただいた後にお支払いをご案内し、お支払い確認後に作業を開始します。</p></details>
         <details><summary>レビューを書きたい場合はどうすればいいですか？</summary><p>納品完了後に、こちらからレビュー専用リンクをお送りします。そちらからご感想をご記入いただけます。公開ページから直接投稿する形式ではありません。</p></details>
         <details><summary>キャンセル・返金について</summary><p>作業開始後のキャンセルは進行状況に応じてご相談となります。こちらの都合で作業できない場合は全額返金します。ご依頼者様都合の場合は進行度により返金が制限される場合があります。</p></details>
       </div>
@@ -635,7 +696,7 @@
     <div class="container">
       <div><span>歌ってみたMIX ご依頼受付中</span><h2>「この録音でも大丈夫？」からでもOK。</h2><p>音源を見てから、必要な作業・料金・納期をご案内します。</p></div>
       <div class="jp-final-actions">
-        <button class="btn jp-final-chat" type="button" data-open-livechat>チャットで相談する</button>
+        <button class="btn jp-final-chat" type="button" data-open-livechat data-chat-intent="mix">チャットで相談する</button>
         <a class="btn jp-final-button" href="https://x.com/Lian5602" target="_blank" rel="noopener">XのDMで相談する</a>
       </div>
     </div>
@@ -652,6 +713,8 @@
 <script src="jp.js"></script>
 <script src="jp-v72.js"></script>
 <script src="jp-v721.js"></script>
+<script src="jp-v728.js"></script>
+<script src="jp-v730.js"></script>
 <script src="crepe-stats.js"></script>
 <script src="paypal-checkout.js"></script>
 

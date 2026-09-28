@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const mailTotal = document.querySelector('#mail-estimate-total');
 
   const planMap = {
-    consult: { label: '相談後に決定', price: null, variable: true },
-    light: { label: 'LIGHT', price: 4000, variable: false },
-    standard: { label: 'STANDARD', price: 5500, variable: false },
-    deluxe: { label: 'DELUXE', price: 6500, variable: true }
+    consult: { label: '相談後に決定', price: null, multiRate: null, variable: true },
+    light: { label: 'LIGHT', price: 4000, multiRate: 4000, variable: false },
+    standard: { label: 'STANDARD', price: 5500, multiRate: 5000, variable: false },
+    deluxe: { label: 'DELUXE', price: 6500, multiRate: 6000, variable: true }
   };
 
   if (deadlineInput) {
@@ -95,16 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let variable = plan.variable;
     let peopleExtra = 0;
-    let peopleText = '追加なし';
+    let participantCount = 1;
+    let peopleText = 'Solo · 1人';
 
     if (people === 'duet') {
-      peopleExtra = 3500;
-      peopleText = '+¥3,500〜';
+      participantCount = 2;
+      if (plan.price !== null) peopleExtra = plan.multiRate * participantCount - plan.price;
+      peopleText = 'Duet · 2人';
       variable = true;
     } else if (people === 'group') {
-      const count = countForEstimate(groupCount, 3);
-      peopleExtra = 3500 + (count - 2) * 2000;
-      peopleText = `${count}人 +${yen(peopleExtra)}〜`;
+      participantCount = countForEstimate(groupCount, 3);
+      if (plan.price !== null) peopleExtra = plan.multiRate * participantCount - plan.price;
+      peopleText = `Group · ${participantCount}人`;
       variable = true;
     }
     if (groupWrap) groupWrap.classList.toggle('is-hidden', people !== 'group');
@@ -208,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainTabs = [...document.querySelectorAll('.jp-click-tab')];
   const mainPanels = [...document.querySelectorAll('[data-jp-panel]')];
   const clickNav = document.querySelector('.jp-click-nav-wrap');
+  const linearLayout = document.body.classList.contains('v728-linear');
   const header = document.querySelector('.site-header');
   const formToggle = document.querySelector('[data-toggle-form]');
   const formWrap = document.querySelector('.jp-contact-form-wrap');
@@ -264,6 +267,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showMainPanel(name, { scroll = true, historyMode = 'push' } = {}) {
     const panelName = validPanels.has(name) ? name : 'works';
+    if (linearLayout) {
+      mainPanels.forEach(panel => {
+        panel.hidden = false;
+        panel.classList.add('is-active');
+      });
+      setHash(panelName, historyMode);
+      if (scroll) requestAnimationFrame(() => scrollToVisible(document.querySelector(`[data-jp-panel="${panelName}"]`)));
+      return;
+    }
     mainTabs.forEach(tab => {
       const on = tab.dataset.panelTarget === panelName;
       tab.classList.toggle('is-active', on);

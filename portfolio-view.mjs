@@ -5,9 +5,10 @@ export function validateManifest(data) {
   const fail = () => { throw new Error('Invalid portfolio manifest'); };
   const title = value => typeof value === 'string' && value.trim().length > 0 && value.length <= 160;
   const audio = value => typeof value === 'string' && /^assets\/audio\/[a-z0-9_-]+\.mp3$/.test(value);
+  const youtube = value => value == null || value === '' || (typeof value === 'string' && /^https:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\//i.test(value));
   const unique = values => new Set(values).size === values.length;
   if (!data || data.portfolio_count !== 10 || !Array.isArray(data.works) || data.works.length !== 10) fail();
-  if (data.works.some(work => !work || !title(work.title) || !audio(work.audio))) fail();
+  if (data.works.some(work => !work || !title(work.title) || !audio(work.audio) || !youtube(work.youtube_url))) fail();
   const titles = data.works.map(work => work.title);
   if (!unique(titles) || !unique(data.works.map(work => work.audio))) fail();
   if (!Array.isArray(data.all_works) || data.all_works.length !== 10 || !unique(data.all_works) || data.all_works.some(value => !titles.includes(value))) fail();
@@ -26,6 +27,7 @@ export function heroWork(data) {
 }
 
 const player = (src, label) => `<audio controls preload="none" src="${escapeHTML(src)}" aria-label="${escapeHTML(label)}"></audio>`;
+const youtubeLink = work => work.youtube_url ? `<a class="lian-youtube-link" href="${escapeHTML(work.youtube_url)}" target="_blank" rel="noopener" aria-label="${escapeHTML(work.title)}をYouTubeで見る"><span aria-hidden="true">▶</span> YouTubeで作品を見る</a>` : '';
 const sample = (label, heading, description, src, name, after = false) => `<article>
   <span class="lian-demo-label${after ? ' lian-after' : ''}">${label}</span>
   <h4>${heading}</h4><p>${description}</p>
@@ -35,10 +37,10 @@ const sample = (label, heading, description, src, name, after = false) => `<arti
 export function renderPortfolio(data) {
   validateManifest(data);
   const lookup = new Map(data.works.map(work => [work.title, work]));
-  const featured = data.featured.map(name => `<article class="lian-featured-card">
+  const featured = data.featured.map(name => { const work = lookup.get(name); return `<article class="lian-featured-card">
   <div class="lian-work-meta"><span>FEATURED WORK</span><span>VOCAL MIX</span></div>
-  <h3>${escapeHTML(name)}</h3>${player(lookup.get(name).audio, name + ' · FEATURED WORK')}
-</article>`).join('\n');
+  <h3>${escapeHTML(name)}</h3>${player(work.audio, name + ' · FEATURED WORK')}${youtubeLink(work)}
+</article>`; }).join('\n');
   const comparisons = data.before_after.map((pair, index) => `<article class="lian-demo-set">
   <div class="lian-demo-set-head"><div><span class="lian-demo-kicker">BEFORE / AFTER ${String(index + 1).padStart(2, '0')}</span><h3>${escapeHTML(pair.title)}</h3></div><span class="lian-demo-time">${escapeHTML(pair.duration_sec)} sec</span></div>
   <div class="lian-ab-grid">
@@ -47,11 +49,11 @@ export function renderPortfolio(data) {
     ${sample('LIAN MIX / AFTER', '完成MIX', '同じ楽曲区間の完成版です。', pair.after, pair.title, true)}
   </div>
 </article>`).join('\n');
-  const works = data.all_works.map(name => `<article class="lian-work-card${data.featured.includes(name) ? ' is-featured' : ''}" data-work data-featured="${data.featured.includes(name)}">
+  const works = data.all_works.map(name => { const work = lookup.get(name); return `<article class="lian-work-card${data.featured.includes(name) ? ' is-featured' : ''}" data-work data-featured="${data.featured.includes(name)}">
   <div class="lian-work-meta"><span>VOCAL MIX</span><span>${data.featured.includes(name) ? 'FEATURED' : 'WORK'}</span></div>
-  <h3>${escapeHTML(name)}</h3>${player(lookup.get(name).audio, name + ' · ALL WORKS')}
+  <h3>${escapeHTML(name)}</h3>${player(work.audio, name + ' · ALL WORKS')}${youtubeLink(work)}
   <div class="lian-tags"><span>MIX</span><span>MASTER</span></div>
-</article>`).join('\n');
+</article>`; }).join('\n');
   return `<section class="lian-section lian-featured" aria-labelledby="featured-title">
   <p class="lian-eyebrow">FEATURED WORKS</p>
   <h2 id="featured-title">まずは、Lian MIXを聴いてみてください。</h2>

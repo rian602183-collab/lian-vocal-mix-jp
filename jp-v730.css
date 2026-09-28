@@ -1,0 +1,337 @@
+/* ============================================================
+   Lian Vocal MIX JP V7.3 — Consultation Conversion Patch
+   - Quick price/deadline answer
+   - 30-second lead form
+   - Tawk intent/status UI
+   Existing V7.2.9 pricing/PayPal logic is intentionally untouched.
+   ============================================================ */
+
+.jp-site.v728-linear .v730-contact-hub{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:18px;
+  margin:0 0 22px;
+  align-items:stretch;
+}
+
+.jp-site.v728-linear .v730-answer-card,
+.jp-site.v728-linear .v730-quick-card{
+  border:1px solid var(--v728-line,#dbe8f3);
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 14px 34px rgba(31,70,107,.055);
+}
+
+.jp-site.v728-linear .v730-answer-card{
+  padding:26px;
+  background:linear-gradient(145deg,#f8fbff 0%,#ffffff 56%,#f8f6ff 100%);
+}
+
+.jp-site.v728-linear .v730-quick-card{padding:26px}
+
+.jp-site.v728-linear .v730-kicker{
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  color:#4f78ad;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.09em;
+}
+
+.jp-site.v728-linear .v730-answer-head h3,
+.jp-site.v728-linear .v730-quick-head h3{
+  margin:6px 0 8px;
+  color:var(--lian-ink,#17354b);
+  font-size:23px;
+  line-height:1.42;
+  letter-spacing:-.035em;
+}
+
+.jp-site.v728-linear .v730-answer-head p,
+.jp-site.v728-linear .v730-quick-head p{
+  margin:0;
+  color:var(--lian-muted,#52697c);
+  font-size:13px;
+  line-height:1.8;
+}
+
+.jp-site.v728-linear .v730-fact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:20px 0 16px;
+}
+
+.jp-site.v728-linear .v730-fact-grid>div{
+  min-width:0;
+  padding:16px;
+  border:1px solid #dce8f4;
+  border-radius:14px;
+  background:rgba(255,255,255,.9);
+}
+
+.jp-site.v728-linear .v730-fact-grid span,
+.jp-site.v728-linear .v730-fact-grid small{
+  display:block;
+  color:#72879a;
+}
+
+.jp-site.v728-linear .v730-fact-grid span{
+  margin-bottom:5px;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.04em;
+}
+
+.jp-site.v728-linear .v730-fact-grid strong{
+  display:block;
+  color:#244f79;
+  font-size:19px;
+  line-height:1.35;
+}
+
+.jp-site.v728-linear .v730-fact-grid small{
+  margin-top:5px;
+  font-size:10px;
+  line-height:1.55;
+}
+
+.jp-site.v728-linear .v730-chat-intents{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.jp-site.v728-linear .v730-chat-intents button{
+  min-height:44px;
+  padding:9px 12px;
+  border:1px solid #bcd2e8;
+  border-radius:10px;
+  background:#fff;
+  color:#315c88;
+  font:inherit;
+  font-size:12px;
+  font-weight:780;
+  cursor:pointer;
+  transition:transform .16s ease,border-color .16s ease,background .16s ease;
+}
+
+.jp-site.v728-linear .v730-chat-intents button:first-child{
+  grid-column:1 / -1;
+  background:#426bb4;
+  border-color:#426bb4;
+  color:#fff;
+}
+
+.jp-site.v728-linear .v730-chat-intents button:hover{
+  transform:translateY(-1px);
+  border-color:#739bc7;
+  background:#f5f9ff;
+}
+
+.jp-site.v728-linear .v730-chat-intents button:first-child:hover{
+  background:#365d9e;
+  border-color:#365d9e;
+}
+
+.jp-site.v728-linear .v730-chat-status{
+  display:flex;
+  align-items:flex-start;
+  gap:7px;
+  margin:12px 0 0;
+  color:#63798d;
+  font-size:11px;
+  line-height:1.65;
+}
+
+.jp-site.v728-linear .v730-chat-status::before{
+  content:'';
+  flex:0 0 7px;
+  width:7px;
+  height:7px;
+  margin-top:.48em;
+  border-radius:50%;
+  background:#a7b8c7;
+}
+
+.jp-site.v728-linear .v730-chat-status[data-status="online"]::before{background:#4f9b77}
+.jp-site.v728-linear .v730-chat-status[data-status="away"]::before{background:#d6a34e}
+.jp-site.v728-linear .v730-chat-status[data-status="offline"]::before,
+.jp-site.v728-linear .v730-chat-status[data-status="error"]::before{background:#c87575}
+
+.jp-site.v728-linear .v730-quick-head{margin-bottom:17px}
+
+.jp-site.v728-linear .v730-quick-form{
+  display:grid;
+  gap:14px;
+}
+
+.jp-site.v728-linear .v730-intent-field{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+.jp-site.v728-linear .v730-intent-field legend{
+  grid-column:1 / -1;
+  margin:0 0 2px;
+  color:#3d5c75;
+  font-size:13px;
+  font-weight:700;
+}
+
+.jp-site.v728-linear .v730-intent-field label{position:relative;cursor:pointer}
+.jp-site.v728-linear .v730-intent-field input{position:absolute;opacity:0;pointer-events:none}
+.jp-site.v728-linear .v730-intent-field span{
+  display:grid;
+  place-items:center;
+  min-height:40px;
+  padding:7px 8px;
+  border:1px solid #cfdeeb;
+  border-radius:9px;
+  background:#fff;
+  color:#52697c;
+  font-size:11px;
+  font-weight:760;
+  text-align:center;
+}
+
+.jp-site.v728-linear .v730-intent-field input:checked + span{
+  border-color:#7298c4;
+  background:#eef5ff;
+  color:#315d8b;
+  box-shadow:inset 0 0 0 1px rgba(66,107,180,.08);
+}
+
+.jp-site.v728-linear .v730-intent-field input:focus-visible + span{
+  outline:3px solid var(--lian-action,#426bb4);
+  outline-offset:3px;
+}
+
+.jp-site.v728-linear .v730-quick-form .field label{
+  display:block;
+  margin-bottom:5px;
+  color:#3d5c75;
+  font-size:13px;
+  font-weight:700;
+}
+
+.jp-site.v728-linear .v730-quick-form .field input,
+.jp-site.v728-linear .v730-quick-form .field select,
+.jp-site.v728-linear .v730-quick-form .field textarea{
+  width:100%;
+  min-height:44px;
+  padding:10px 11px;
+  border:1px solid #cfdfee;
+  border-radius:9px;
+  background:#fff;
+  color:var(--lian-ink,#17354b);
+  font:inherit;
+  font-size:15px;
+  box-sizing:border-box;
+}
+
+.jp-site.v728-linear .v730-quick-form .field textarea{
+  min-height:88px;
+  resize:vertical;
+}
+
+.jp-site.v728-linear .v730-quick-form .field small{
+  display:block;
+  margin-top:5px;
+  color:#8091a1;
+  font-size:10px;
+  line-height:1.55;
+}
+
+.jp-site.v728-linear .v730-optional-details{
+  border:1px solid #dce7f1;
+  border-radius:11px;
+  background:#fafcff;
+}
+
+.jp-site.v728-linear .v730-optional-details summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 13px;
+  color:#3d5c75;
+  font-size:12px;
+  font-weight:760;
+  cursor:pointer;
+  list-style:none;
+}
+
+.jp-site.v728-linear .v730-optional-details summary::-webkit-details-marker{display:none}
+.jp-site.v728-linear .v730-optional-details summary::after{content:'＋';color:#7190ad;font-size:17px;line-height:1}
+.jp-site.v728-linear .v730-optional-details[open] summary::after{content:'−'}
+.jp-site.v728-linear .v730-optional-details summary span{color:#8294a5;font-size:10px;font-weight:600}
+.jp-site.v728-linear .v730-optional-body{padding:0 13px 13px}
+.jp-site.v728-linear .v730-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.jp-site.v728-linear .v730-optional-body>.field{margin-top:10px}
+
+.jp-site.v728-linear .v730-privacy{
+  margin:0;
+  padding:10px 11px;
+  border-radius:9px;
+  background:#f7f9fc;
+}
+
+.jp-site.v728-linear .v730-privacy label{margin:0}
+.jp-site.v728-linear .v730-privacy span{font-size:11px;line-height:1.65}
+.jp-site.v728-linear .v730-quick-submit{width:100%;min-height:47px}
+.jp-site.v728-linear .v730-submit-note{margin:-6px 0 0;color:#8595a4;font-size:10px;line-height:1.6;text-align:center}
+
+.jp-site.v728-linear .v730-more-actions{
+  max-width:840px;
+  margin:0 auto 16px;
+}
+
+.jp-site.v728-linear .v730-more-actions .jp-contact-open,
+.jp-site.v728-linear .v730-more-actions .jp-big-x{
+  min-height:108px;
+}
+
+.jp-site.v728-linear .v730-more-actions .jp-contact-open{
+  background:#fff!important;
+  border-color:#d6e3ef!important;
+  box-shadow:none!important;
+}
+
+.jp-site.v728-linear #quick-consult{scroll-margin-top:calc(var(--lian-header,72px) + 16px)}
+
+@media(max-width:900px){
+  .jp-site.v728-linear .v730-contact-hub{grid-template-columns:1fr}
+  .jp-site.v728-linear .v730-answer-card,
+  .jp-site.v728-linear .v730-quick-card{padding:22px}
+}
+
+@media(max-width:700px){
+  .jp-site.v728-linear .v730-contact-hub{gap:12px;margin-bottom:16px}
+  .jp-site.v728-linear .v730-answer-card,
+  .jp-site.v728-linear .v730-quick-card{padding:18px 15px;border-radius:16px}
+  .jp-site.v728-linear .v730-answer-head h3,
+  .jp-site.v728-linear .v730-quick-head h3{font-size:20px}
+  .jp-site.v728-linear .v730-fact-grid{grid-template-columns:1fr;margin:16px 0 13px}
+  .jp-site.v728-linear .v730-fact-grid>div{padding:13px}
+  .jp-site.v728-linear .v730-chat-intents{grid-template-columns:1fr}
+  .jp-site.v728-linear .v730-chat-intents button:first-child{grid-column:auto}
+  .jp-site.v728-linear .v730-intent-field{grid-template-columns:1fr 1fr 1fr}
+  .jp-site.v728-linear .v730-intent-field span{min-height:42px;padding:6px 4px;font-size:10px}
+  .jp-site.v728-linear .v730-quick-grid{grid-template-columns:1fr}
+  .jp-site.v728-linear .v730-optional-body{padding:0 11px 11px}
+  .jp-site.v728-linear .v730-optional-details summary{padding:11px}
+  .jp-site.v728-linear .v730-more-actions{grid-template-columns:1fr}
+  .jp-site.v728-linear .v730-more-actions .jp-contact-open,
+  .jp-site.v728-linear .v730-more-actions .jp-big-x{min-height:94px}
+  .jp-site.v728-linear .v730-quick-card{padding-bottom:28px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .jp-site.v728-linear .v730-chat-intents button{transition:none}
+}

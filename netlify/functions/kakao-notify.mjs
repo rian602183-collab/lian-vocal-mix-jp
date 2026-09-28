@@ -22,10 +22,14 @@ function buildMessage(data) {
   const total = clip(value(data, "예상_최소_금액"), 22);
   const deadline = clip(value(data, "deadline"), 16);
   const lang = clip(value(data, "site_language", "KR"), 4);
+  const reply = clip(value(data, "sns_id"), 36);
 
-  // Kakao text template limit: 200 chars.
+  // Kakao text template limit: 200 chars. Put the reply destination near the
+  // top so a V7.3 quick consultation can be acted on without opening the
+  // full submission first.
   const lines = [
     `🎧 Lian MIX 새 문의 · ${lang}`,
+    `회신: ${reply}`,
     `활동명: ${artist}`,
     `곡: ${song}`,
     `플랜: ${plan}`,

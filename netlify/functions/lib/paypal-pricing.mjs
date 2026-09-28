@@ -1,10 +1,11 @@
-// Mirrors the existing jp.js calculator. The quote UI remains byte-identical;
-// work/v722-tests/paypal-pricing compares this module to its actual listener.
+// Mirrors the current jp.js calculator. Solo keeps the original plan price;
+// 2+ people use the plan-specific per-person group rate.
 // PayPal Orders MAX_VALUE_EXCEEDED documents 999999999999999.99; JPY has no
 // fractional units. This technical ceiling is not a new service price limit.
 export const MAX_AMOUNT_JPY = 999_999_999_999_999;
 
 const PLAN_PRICES = Object.freeze({ light: 4000, standard: 5500, deluxe: 6500 });
+const MULTI_PERSON_RATES = Object.freeze({ light: 4000, standard: 5000, deluxe: 6000 });
 const OPTION_PRICES = Object.freeze({ harmony: 1000, adlib: 1000, private: 2000 });
 const RUSH_RATES = Object.freeze({ none: 0, rush48: 0.30, rush24: 0.50 });
 
@@ -65,15 +66,11 @@ export function calculateQuote(raw) {
   if (new Set(options).size !== options.length) invalid();
   options.sort();
 
-  let peopleExtra = 0;
-  if (partyType === 'duet') peopleExtra = 3500;
-  else if (partyType === 'group') {
-    const laterPeople = safeMoney((participantCount - 2) * 2000);
-    peopleExtra = safeMoney(3500 + laterPeople);
-  }
+  const planAndPeople = partyType === 'solo'
+    ? PLAN_PRICES[plan]
+    : safeMoney(MULTI_PERSON_RATES[plan] * participantCount);
   let extrasPrice = safeMoney(extraVocalTracks * 500);
   for (const option of options) extrasPrice = safeMoney(extrasPrice + OPTION_PRICES[option]);
-  const planAndPeople = safeMoney(PLAN_PRICES[plan] + peopleExtra);
   const subtotal = safeMoney(planAndPeople + extrasPrice);
   // Preserve the exact existing rounding order, including whole-subtotal rush.
   const amountJPY = safeMoney(Math.round(subtotal * (1 + RUSH_RATES[rush])));
